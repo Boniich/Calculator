@@ -1,0 +1,145 @@
+*{
+    /* margin: 0;
+    padding: 0;
+} */
+}
+
+body{
+    background-color:#999999;
+}
+.box{
+    background-color: white;
+    width: 280px;
+    margin: 300px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 13px;
+}
+
+.result-operation{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    height: 100px;
+    padding: 5px 0;
+
+}
+
+.box-operation, .box-result{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.btns{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: "porcentaje ce c dividir"
+                          "btn7 btn8 btn9 multiplicar"
+                          "btn4 btn5 btn6 restar"
+                          "btn1 btn2 btn3 sumar"
+                          "cero coma igual nada";
+}
+
+.btn{
+    width: 70px;
+    height: 30px;
+    border: 1px solid #ccc;
+
+}
+
+.btn:hover{
+    background-color: tomato;
+}
+
+
+.btn-num-color{
+    background-color: #fff;
+}
+
+.btn-others-color{
+    background-color: #f2f2f2;
+}
+
+.btn-igual-color{
+    background-color: #85a3e0;
+}
+
+.btnPorcentaje{
+    grid-area: porcentaje;
+
+} 
+ .btnCE{
+    grid-area: ce;
+} 
+ .btnC{
+    grid-area: c;
+} 
+
+.btn9{
+    grid-area: btn9;
+} 
+
+.btn8{
+    grid-area: btn8;
+}
+
+.btn7{
+    grid-area: btn7;
+}
+
+.dividir{
+    grid-area: dividir;
+}
+
+.btn4{
+    grid-area: btn4;
+} 
+
+.btn5{
+    grid-area: btn5;
+}
+
+.btn6{
+    grid-area: btn6;
+}
+
+.multiplicar{
+    grid-area: multiplicar;
+}
+
+.btn1{
+    grid-area: btn1;
+} 
+
+.btn2{
+    grid-area: btn2;
+}
+
+.btn3{
+    grid-area: btn3;
+}
+
+.menos{
+    grid-area: restar;
+}
+
+.mas{
+    grid-area: sumar;
+}
+
+.btn0{
+    grid-area: cero;
+}
+
+.btnComa{
+    grid-area: coma;
+}
+
+.igual{
+    grid-area: igual;
+}
+
+
