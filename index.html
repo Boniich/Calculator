@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
 
     <div class="box">
-        <div class="box-result"></div><p id="operation"></p></div>
+        <div class="result-operation">
+        <div class="box-operation"><p id="operation"></p></div>
         <div class="box-result"><p id="result"></p></div>
+        </div>
         <div class="btns">
-            <button class="btn1">1</button>
-            <button class="btn2">2</button>
-            <button class="btn0">0</button>
-            <button class="mas">+</button>
-            <button class="menos">-</button>
-            <button class="multiplicar">*</button>
-            <button class="dividir">/</button>
-            <button class="igual">=</button>
+            <button class="btn btn-num-color btn1">1</button>
+            <button class="btn btn-num-color btn2">2</button>
+            <button class="btn btn-num-color btn3">3</button>
+            <button class="btn btn-num-color btn4">4</button>
+            <button class="btn btn-num-color btn5">5</button>
+            <button class="btn btn-num-color btn6">6</button>
+            <button class="btn btn-num-color btn7">7</button>
+            <button class="btn btn-num-color btn8">8</button>
+            <button class="btn btn-num-color btn9">9</button>
+            <button class="btn btn-num-color btn0">0</button>
+            <button class="btn btn-num-color btnComa">,</button>
+            <button class="btn btn-others-color btnCE">CE</button>
+            <button class="btn btn-others-color btnC">C</button>
+            <button class="btn btn-others-color btnPorcentaje">%</button>
+            <button class="btn btn-others-color mas">+</button>
+            <button class="btn btn-others-color menos">-</button>
+            <button class="btn btn-others-color multiplicar">*</button>
+            <button class="btn btn-others-color dividir">/</button>
+            <button class="btn btn-igual-color igual">=</button>
         </div>
     </div>
 
-    <script src="index_dom.js" type="module"></script>
+    <script src="./js/index_dom.js" type="module"></script>
 </body>
 </html>
