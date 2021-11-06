@@ -256,6 +256,22 @@ function calculadora(){
             
         }
 
+        // resets
+
+        if(e.target.matches(".btnCE")){
+            console.log("Estoy haciendo click en boton CE");
+            state.result = "0";
+            console.log("Reseteado el valor del 'resultado'");
+
+        }
+
+        if(e.target.matches(".btnC")){
+            console.log("Estoy haciendo click en boton C");
+            state.operation = "";
+            state.result = "0";
+            
+        }
+
         // Operaciones
 
         if(e.target.matches(".multiplicar")){
@@ -284,21 +300,17 @@ function calculadora(){
                 console.log(igual());
                 bandera = 1;
                 flag = true;
-                // flag2 = 1;
             }else if(state.operation.endsWith("+")){
 
                 console.log("Encontre el + en la ultima posicion");
                 console.log(igual());
                 flag = true;
-                // flag2 = 1;
             
             }else{
                 state.operation = state.result;
                 state.operation += "+"; 
     
-                renderOperation();
                 flag = true;
-                // flag2 = 1;
                 
             }
 
@@ -322,6 +334,7 @@ function calculadora(){
         }
 
         render();
+        renderOperation();
     })
   
 
