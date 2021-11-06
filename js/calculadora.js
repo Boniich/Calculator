@@ -31,6 +31,55 @@ function renderOperation(){
 }
 
 
+function darResultado(signoString, resultado){
+    // determinamos que signo es y dividimos el string
+    let valor = state.operation.split(signoString);
+
+    // comvertimos los string a numeros
+    let valor1 = Number.parseInt(valor[0]);
+    let valorR = Number.parseInt(state.result);
+
+    let signoMas = Number.parseInt(signoString);
+    console.log(signoMas);
+
+    console.log("suman");
+    console.log("valor 1:",valor1);
+    console.log("valor 2:",valorR);
+
+    if(state.operation.endsWith("*")){
+        resultado = valor1 * valorR;
+        console.log(`valor 1: ${valor1} * Valor: ${valorR} = Resultado`,resultado);
+        state.operation = `${resultado}${signoString}`;
+        state.result = resultado;
+    }
+
+    if(state.operation.endsWith("/")){
+
+        if(valorR === 0) {alert("No es posible dividir por 0"); return;} 
+        resultado = valor1 / valorR;
+        console.log(`valor 1: ${valor1} / Valor: ${valorR} = Resultado`,resultado);
+        state.operation = `${resultado}${signoString}`;
+        state.result = resultado;
+    }
+
+    if(state.operation.endsWith("+")){
+        resultado = valor1 + valorR;
+        console.log(`valor 1: ${valor1} + Valor: ${valorR} = Resultado`,resultado);
+        state.operation = `${resultado}${signoString}`;
+        state.result = resultado;
+    }
+    
+
+    if(state.operation.endsWith("-")){
+        resultado = valor1 - valorR;
+        console.log(`valor 1: ${valor1} - Valor: ${valorR} = Resultado`,resultado);
+        state.operation = `${resultado}${signoString}`;
+        state.result = resultado;
+    }
+
+}
+
+
 function igual(){
 
     let resultado = 0;
@@ -38,56 +87,27 @@ function igual(){
 
     for(let i = 0; i<= state.operation.length;i++){
 
-        if(state.result[i] === "*"){
+        if(state.operation[i] === "*"){
 
-            let signo = state.result.split("*");
-            let valor1 = Number.parseInt(signo[0]);
-            let valor2 = Number.parseInt(signo[1]);
 
-            resultado = valor1*valor2;
+            darResultado("*");
+            break;
+        }else if(state.operation[i] === "/"){
 
-        }else if(state.result[i] === "/"){
-
-            let signo = state.result.split("/");
-            let valor1 = Number.parseInt(signo[0]);
-            let valor2 = Number.parseInt(signo[1]);
             
-            if(valor2 === 0){
-                alert("No es posible dividir por 0")
-            }else{
-                resultado = valor1/valor2;
-            };
+            darResultado("/");
+            break;
             
 
         }else if(state.operation[i] === "+"){
-            let valor = state.operation.split("+");
-            // comvertimos los string a numeros
-            let valor1 = Number.parseInt(valor[0]);
-            // let valor2 = Number.parseInt(valor[1]);
-            let valorR = Number.parseInt(state.result);
+
+            darResultado("+", resultado);
             
-            // let valor1 = Number.parseInt("22");
-            // let valorR = Number.parseInt("2");
-
-
-            console.log("suman");
-            console.log(valor1);
-            console.log(valorR);
-            resultado = valor1+valorR;
-            console.log(resultado);
-            state.operation = `${resultado}+`;
-            state.result = resultado;
-            renderOperation();
             break;
                 
-        }else if(state.result[i] === "-"){
-            let valor = state.result.split("-");
-            // comvertimos los string a numeros
-            let valor1 = Number.parseInt(valor[0]);
-            let valor2 = Number.parseInt(valor[1]);
-        
-            resultado = valor1-valor2;
+        }else if(state.operation[i] === "-"){
 
+            darResultado("-", resultado);
         }
 
 
@@ -96,6 +116,7 @@ function igual(){
 
     // actualizamos el estado
     
+    renderOperation();
     return resultado;
 
 }
@@ -276,40 +297,49 @@ function calculadora(){
 
         if(e.target.matches(".multiplicar")){
             console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            state.result = state.result += "*";
+            if(state.operation.endsWith("*")){
+                console.log("Encontre el * en la ultima posicion");
+                igual();
+                flag = true;
+            }else{
+                state.operation = state.result;
+                state.operation += "*";
+                flag = true; 
+            }
+
+            
         }
 
 
         if(e.target.matches(".dividir")){
             console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            state.result = state.result += "/";
+            if(state.operation.endsWith("/")){
+                console.log("Encontre el / en la ultima posicion");
+                igual();
+                flag = true;
+            }else{
+                state.operation = state.result;
+                state.operation += "/";
+                flag = true; 
+            }
+
         }
 
 
         if(e.target.matches(".mas")){
             console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(bandera === 0 && state.operation.endsWith("+")){
-
-                console.log("Encontre el + en la ultima posicion");
-                console.log(igual());
-                bandera = 1;
-                flag = true;
-            }else if(state.operation.endsWith("+")){
+            if(state.operation.endsWith("+")){
 
                 console.log("Encontre el + en la ultima posicion");
-                console.log(igual());
+                igual();
                 flag = true;
-            
+
             }else{
                 state.operation = state.result;
                 state.operation += "+"; 
-    
                 flag = true;
                 
             }
@@ -321,14 +351,24 @@ function calculadora(){
 
         if(e.target.matches(".menos")){
             console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
+  
+            if(state.operation.endsWith("-")){
 
-            state.result = state.result += "-";
+                console.log("Encontre el + en la ultima posicion");
+                igual();
+                flag = true;
+
+            }else{
+                state.operation = state.result;
+                state.operation += "-"; 
+                flag = true;
+                
+            }
         }
 
         if(e.target.matches(".igual")){
             
-            console.log(igual());
+            igual();
 
             
         }
