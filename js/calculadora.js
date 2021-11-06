@@ -1,3 +1,4 @@
+import matches from "./matches/matches.js";
 
 
 const state = {
@@ -99,14 +100,18 @@ function igual(){
 
 }
 
+
+
+
 function calculadora(){
 
-    let flag = true;
+    let flag = false;
     let bandera = 0;
 
     document.addEventListener("click", (e) =>{
 
         e.preventDefault();
+
         
         //modificamos el state cuando se hace click en alguno de los botones
 
@@ -114,31 +119,124 @@ function calculadora(){
             console.log("estado previo del state",state);
             console.log("Agregamos el valor 1 al state");
 
-
-            if(state.result === "0"){
+           
+            if(state.result === "0" || flag === true){
                 state.result = "1";
+                flag = false;
             }else{
-
                 state.result = state.result += "1";
             }
-           
-   
+
         }
 
         if(e.target.matches(".btn2")){
             console.log("estado previo del state",state);
             console.log("Agregamos el valor 2 al state");
 
-
-            if(state.result === "0"){
+            if(state.result === "0" || flag === true){
                 state.result = "2";
-            }else if(flag === false){
-                console.log(flag);
-                state.result = "2";
-                flag = true;
-
+                flag = false;
             }else{
                 state.result = state.result += "2";
+            }
+            
+            
+        }
+
+        
+        if(e.target.matches(".btn3")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "3";
+                flag = false;
+            }else{
+                state.result = state.result += "3";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn4")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "4";
+                flag = false;
+            }else{
+                state.result = state.result += "4";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn5")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "5";
+                flag = false;
+            }else{
+                state.result = state.result += "5";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn6")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "6";
+                flag = false;
+            }else{
+                state.result = state.result += "6";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn7")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "7";
+                flag = false;
+            }else{
+                state.result = state.result += "7";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn8")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "8";
+                flag = false;
+            }else{
+                state.result = state.result += "8";
+            }
+            
+            
+        }
+
+        if(e.target.matches(".btn9")){
+            console.log("estado previo del state",state);
+            console.log("Agregamos el valor 2 al state");
+
+            if(state.result === "0" || flag === true){
+                state.result = "9";
+                flag = false;
+            }else{
+                state.result = state.result += "9";
             }
             
             
@@ -148,15 +246,17 @@ function calculadora(){
             console.log("estado previo del state",state);
             console.log("Agregamos el valor 2 al state");
 
-
-            if(state.result === "0"){
+            if(state.result === "0" || flag === true){
                 state.result = "0";
+                flag = false;
             }else{
                 state.result = state.result += "0";
             }
             
             
         }
+
+        // Operaciones
 
         if(e.target.matches(".multiplicar")){
             console.log("estado previo del state",state);
@@ -183,19 +283,22 @@ function calculadora(){
                 console.log("Encontre el + en la ultima posicion");
                 console.log(igual());
                 bandera = 1;
-                flag = false;
+                flag = true;
+                // flag2 = 1;
             }else if(state.operation.endsWith("+")){
 
                 console.log("Encontre el + en la ultima posicion");
                 console.log(igual());
-                flag = false;
+                flag = true;
+                // flag2 = 1;
             
             }else{
                 state.operation = state.result;
                 state.operation += "+"; 
     
                 renderOperation();
-                flag = false;
+                flag = true;
+                // flag2 = 1;
                 
             }
 
