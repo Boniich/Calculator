@@ -6,7 +6,7 @@ const state = {
     result: "0",
 }
 
-function template(){
+function templateResult(){
 
     let resultado = state.result;
 
@@ -19,11 +19,11 @@ function templateOperation(){
     return operation;
 }
 
-function render(){
+function renderResult(){
 
     console.log(state);
     const $result = document.getElementById("result");
-    $result.innerHTML = template();
+    $result.innerHTML = templateResult();
 }
 
 function renderOperation(){
@@ -45,11 +45,8 @@ function darResultado(signoString, resultado){
     let signoMas = Number.parseInt(signoString);
     console.log(signoMas);
 
-    console.log("suman");
-    console.log("valor 1:",valor1);
-    console.log("valor 2:",valorR);
-
     if(state.operation.endsWith("*")){
+        console.log("Multiplicar");
         resultado = valor1 * valorR;
         console.log(`valor 1: ${valor1} * Valor: ${valorR} = Resultado`,resultado);
         state.operation = `${resultado}${signoString}`;
@@ -57,7 +54,7 @@ function darResultado(signoString, resultado){
     }
 
     if(state.operation.endsWith("/")){
-
+        console.log("Dividir");
         if(valorR === 0) {alert("No es posible dividir por 0"); return;} 
         resultado = valor1 / valorR;
         console.log(`valor 1: ${valor1} / Valor: ${valorR} = Resultado`,resultado);
@@ -66,6 +63,7 @@ function darResultado(signoString, resultado){
     }
 
     if(state.operation.endsWith("+")){
+        console.log("suman");
         resultado = valor1 + valorR;
         console.log(`valor 1: ${valor1} + Valor: ${valorR} = Resultado`,resultado);
         state.operation = `${resultado}${signoString}`;
@@ -74,6 +72,7 @@ function darResultado(signoString, resultado){
     
 
     if(state.operation.endsWith("-")){
+        console.log("Resta");
         resultado = valor1 - valorR;
         console.log(`valor 1: ${valor1} - Valor: ${valorR} = Resultado`,resultado);
         state.operation = `${resultado}${signoString}`;
@@ -111,6 +110,7 @@ function igual(){
         }else if(state.operation[i] === "-"){
 
             darResultado("-", resultado);
+            break;
         }
 
 
@@ -122,6 +122,13 @@ function igual(){
     renderOperation();
     return resultado;
 
+}
+
+const getPoint = (signo) =>{
+    console.log("Esta coma debe ser borrada");
+    let point = state.result.split(".");
+    state.result = point[0];
+    state.operation = state.result+signo;
 }
 
 
@@ -326,6 +333,9 @@ function calculadora(){
                 console.log("Encontre el * en la ultima posicion");
                 igual();
                 flag = true;
+            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+                getPoint("*");
+
             }else{
                 state.operation = state.result;
                 state.operation += "*";
@@ -343,6 +353,8 @@ function calculadora(){
                 console.log("Encontre el / en la ultima posicion");
                 igual();
                 flag = true;
+            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+                getPoint("/");
             }else{
                 state.operation = state.result;
                 state.operation += "/";
@@ -350,6 +362,8 @@ function calculadora(){
             }
 
         }
+
+
 
 
         if(e.target.matches(".mas")){
@@ -364,10 +378,8 @@ function calculadora(){
                 flag = true;
 
             }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
-                console.log("Esta coma debe ser borrada");
-                let valor = state.result.split(".");
-                state.result = valor[0];
-                state.operation = state.result+"+";
+
+                getPoint("+");
             }else{
                 state.operation = state.result;
                 state.operation += "+"; 
@@ -387,6 +399,9 @@ function calculadora(){
                 igual();
                 flag = true;
 
+            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+
+                getPoint("-");
             }else{
                 state.operation = state.result;
                 state.operation += "-"; 
@@ -402,14 +417,14 @@ function calculadora(){
             
         }
 
-        render();
+        renderResult();
         renderOperation();
     })
   
 
 }
 
-document.addEventListener("DOMContentLoaded", render);
+document.addEventListener("DOMContentLoaded", renderResult);
 
 
 
