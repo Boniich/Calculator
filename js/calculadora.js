@@ -14,6 +14,7 @@ function template(){
 }
 
 function templateOperation(){
+
     let operation = state.operation;
     return operation;
 }
@@ -34,10 +35,12 @@ function renderOperation(){
 function darResultado(signoString, resultado){
     // determinamos que signo es y dividimos el string
     let valor = state.operation.split(signoString);
+    console.log(valor[0]);
+    console.log(state.result);
 
     // comvertimos los string a numeros
-    let valor1 = Number.parseInt(valor[0]);
-    let valorR = Number.parseInt(state.result);
+    let valor1 = Number.parseFloat(valor[0]);
+    let valorR = Number.parseFloat(state.result);
 
     let signoMas = Number.parseInt(signoString);
     console.log(signoMas);
@@ -127,7 +130,6 @@ function igual(){
 function calculadora(){
 
     let flag = false;
-    let bandera = 0;
 
     document.addEventListener("click", (e) =>{
 
@@ -144,6 +146,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "1";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "1";
             }
@@ -157,6 +160,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "2";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "2";
             }
@@ -172,6 +176,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "3";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "3";
             }
@@ -186,6 +191,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "4";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "4";
             }
@@ -200,6 +206,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "5";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "5";
             }
@@ -214,6 +221,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "6";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "6";
             }
@@ -228,6 +236,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "7";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "7";
             }
@@ -242,6 +251,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "8";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "8";
             }
@@ -256,6 +266,7 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "9";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "9";
             }
@@ -270,11 +281,22 @@ function calculadora(){
             if(state.result === "0" || flag === true){
                 state.result = "0";
                 flag = false;
+                document.querySelector(".btnComa").disabled = false;
             }else{
                 state.result = state.result += "0";
             }
             
             
+        }
+
+        // coma
+
+        if(e.target.matches(".btnComa")){
+            console.log("apretamos la coma");
+            // si no hay un numero despues de la coma, si se apreta una operacion, la coma debe desaparecer
+            state.result = state.result += ".";
+
+            e.target.disabled = true;
         }
 
         // resets
@@ -283,6 +305,7 @@ function calculadora(){
             console.log("Estoy haciendo click en boton CE");
             state.result = "0";
             console.log("Reseteado el valor del 'resultado'");
+            document.querySelector(".btnComa").disabled = false;
 
         }
 
@@ -290,6 +313,7 @@ function calculadora(){
             console.log("Estoy haciendo click en boton C");
             state.operation = "";
             state.result = "0";
+            document.querySelector(".btnComa").disabled = false;
             
         }
 
@@ -331,12 +355,19 @@ function calculadora(){
         if(e.target.matches(".mas")){
             console.log("estado previo del state",state);
 
+   
+
             if(state.operation.endsWith("+")){
 
                 console.log("Encontre el + en la ultima posicion");
                 igual();
                 flag = true;
 
+            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+                console.log("Esta coma debe ser borrada");
+                let valor = state.result.split(".");
+                state.result = valor[0];
+                state.operation = state.result+"+";
             }else{
                 state.operation = state.result;
                 state.operation += "+"; 
@@ -344,9 +375,7 @@ function calculadora(){
                 
             }
 
-                          
-     
-
+              
         }
 
         if(e.target.matches(".menos")){
