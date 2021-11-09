@@ -6,22 +6,26 @@ const state = {
     result: "0",
 }
 
+
+// obtenemos una copia del estado
+
+const getState = () => JSON.parse(JSON.stringify(state));
+const stateCopy = getState();
+
 function templateResult(){
-
-    let resultado = state.result;
-
+    let resultado = stateCopy.result;
     return resultado;
 }
 
 function templateOperation(){
 
-    let operation = state.operation;
+    let operation = stateCopy.operation;
     return operation;
 }
 
 function renderResult(){
-
-    console.log(state);
+    console.log("Original:",state);
+    console.log("Copia: ",stateCopy);
     const $result = document.getElementById("result");
     $result.innerHTML = templateResult();
 }
@@ -34,49 +38,46 @@ function renderOperation(){
 
 function darResultado(signoString, resultado){
     // determinamos que signo es y dividimos el string
-    let valor = state.operation.split(signoString);
+    let valor = stateCopy.operation.split(signoString);
     console.log(valor[0]);
-    console.log(state.result);
+    console.log(stateCopy.result);
 
     // comvertimos los string a numeros
     let valor1 = Number.parseFloat(valor[0]);
-    let valorR = Number.parseFloat(state.result);
+    let valorR = Number.parseFloat(stateCopy.result);
 
-    let signoMas = Number.parseInt(signoString);
-    console.log(signoMas);
-
-    if(state.operation.endsWith("*")){
+    if(stateCopy.operation.endsWith("*")){
         console.log("Multiplicar");
         resultado = valor1 * valorR;
         console.log(`valor 1: ${valor1} * Valor: ${valorR} = Resultado`,resultado);
-        state.operation = `${resultado}${signoString}`;
-        state.result = resultado;
+        stateCopy.operation = `${resultado}${signoString}`;
+        stateCopy.result = `${resultado}`;
     }
 
-    if(state.operation.endsWith("/")){
+    if(stateCopy.operation.endsWith("/")){
         console.log("Dividir");
         if(valorR === 0) {alert("No es posible dividir por 0"); return;} 
         resultado = valor1 / valorR;
         console.log(`valor 1: ${valor1} / Valor: ${valorR} = Resultado`,resultado);
-        state.operation = `${resultado}${signoString}`;
-        state.result = resultado;
+        stateCopy.operation = `${resultado}${signoString}`;
+        stateCopy.result = `${resultado}`;
     }
 
-    if(state.operation.endsWith("+")){
+    if(stateCopy.operation.endsWith("+")){
         console.log("suman");
         resultado = valor1 + valorR;
         console.log(`valor 1: ${valor1} + Valor: ${valorR} = Resultado`,resultado);
-        state.operation = `${resultado}${signoString}`;
-        state.result = resultado;
+        stateCopy.operation = `${resultado}${signoString}`;
+        stateCopy.result = `${resultado}`;
     }
     
 
-    if(state.operation.endsWith("-")){
+    if(stateCopy.operation.endsWith("-")){
         console.log("Resta");
         resultado = valor1 - valorR;
         console.log(`valor 1: ${valor1} - Valor: ${valorR} = Resultado`,resultado);
-        state.operation = `${resultado}${signoString}`;
-        state.result = resultado;
+        stateCopy.operation = `${resultado}${signoString}`;
+        stateCopy.result = `${resultado}`;
     }
 
 }
@@ -87,27 +88,27 @@ function igual(){
     let resultado = 0;
 
 
-    for(let i = 0; i<= state.operation.length;i++){
+    for(let i = 0; i<= stateCopy.operation.length;i++){
 
-        if(state.operation[i] === "*"){
+        if(stateCopy.operation[i] === "*"){
 
 
             darResultado("*");
             break;
-        }else if(state.operation[i] === "/"){
+        }else if(stateCopy.operation[i] === "/"){
 
             
             darResultado("/");
             break;
             
 
-        }else if(state.operation[i] === "+"){
+        }else if(stateCopy.operation[i] === "+"){
 
             darResultado("+", resultado);
             
             break;
                 
-        }else if(state.operation[i] === "-"){
+        }else if(stateCopy.operation[i] === "-"){
 
             darResultado("-", resultado);
             break;
@@ -126,16 +127,14 @@ function igual(){
 
 const getPoint = (signo) =>{
     console.log("Esta coma debe ser borrada");
-    let point = state.result.split(".");
-    state.result = point[0];
-    state.operation = state.result+signo;
+    let point = stateCopy.result.split(".");
+    stateCopy.result = point[0];
+    stateCopy.operation = stateCopy.result+signo;
 }
 
 
-
-
 function calculadora(){
-
+    
     let flag = false;
 
     document.addEventListener("click", (e) =>{
@@ -146,30 +145,26 @@ function calculadora(){
         //modificamos el state cuando se hace click en alguno de los botones
 
         if(e.target.matches(".btn1")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 1 al state");
 
-           
-            if(state.result === "0" || flag === true){
-                state.result = "1";
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "1";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "1";
+                stateCopy.result = stateCopy.result +="1";
             }
 
         }
 
         if(e.target.matches(".btn2")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "2";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "2";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "2";
+                stateCopy.result = stateCopy.result += "2";
             }
             
             
@@ -177,120 +172,112 @@ function calculadora(){
 
         
         if(e.target.matches(".btn3")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "3";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "3";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "3";
+                stateCopy.result = stateCopy.result += "3";
             }
             
             
         }
 
         if(e.target.matches(".btn4")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "4";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "4";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "4";
+                stateCopy.result = stateCopy.result += "4";
             }
             
             
         }
 
         if(e.target.matches(".btn5")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "5";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "5";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "5";
+                stateCopy.result = stateCopy.result += "5";
             }
             
             
         }
 
         if(e.target.matches(".btn6")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "6";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "6";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "6";
+                stateCopy.result = stateCopy.result += "6";
             }
             
             
         }
 
         if(e.target.matches(".btn7")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "7";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "7";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "7";
+                stateCopy.result = stateCopy.result += "7";
             }
             
             
         }
 
         if(e.target.matches(".btn8")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "8";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "8";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "8";
+                stateCopy.result = stateCopy.result += "8";
             }
             
             
         }
 
         if(e.target.matches(".btn9")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "9";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "9";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "9";
+                stateCopy.result = stateCopy.result += "9";
             }
             
             
         }
 
         if(e.target.matches(".btn0")){
-            console.log("estado previo del state",state);
-            console.log("Agregamos el valor 2 al state");
 
-            if(state.result === "0" || flag === true){
-                state.result = "0";
+
+            if(stateCopy.result === "0" || flag === true){
+                stateCopy.result = "0";
                 flag = false;
                 document.querySelector(".btnComa").disabled = false;
             }else{
-                state.result = state.result += "0";
+                stateCopy.result = stateCopy.result += "0";
             }
             
             
@@ -301,7 +288,7 @@ function calculadora(){
         if(e.target.matches(".btnComa")){
             console.log("apretamos la coma");
             // si no hay un numero despues de la coma, si se apreta una operacion, la coma debe desaparecer
-            state.result = state.result += ".";
+            stateCopy.result = stateCopy.result += ".";
 
             e.target.disabled = true;
         }
@@ -310,7 +297,7 @@ function calculadora(){
 
         if(e.target.matches(".btnCE")){
             console.log("Estoy haciendo click en boton CE");
-            state.result = "0";
+            stateCopy.result = "0";
             console.log("Reseteado el valor del 'resultado'");
             document.querySelector(".btnComa").disabled = false;
 
@@ -318,8 +305,8 @@ function calculadora(){
 
         if(e.target.matches(".btnC")){
             console.log("Estoy haciendo click en boton C");
-            state.operation = "";
-            state.result = "0";
+            stateCopy.operation = "";
+            stateCopy.result = "0";
             document.querySelector(".btnComa").disabled = false;
             
         }
@@ -327,18 +314,17 @@ function calculadora(){
         // Operaciones
 
         if(e.target.matches(".multiplicar")){
-            console.log("estado previo del state",state);
 
-            if(state.operation.endsWith("*")){
+            if(stateCopy.operation.endsWith("*")){
                 console.log("Encontre el * en la ultima posicion");
                 igual();
                 flag = true;
-            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+            }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
                 getPoint("*");
 
             }else{
-                state.operation = state.result;
-                state.operation += "*";
+                stateCopy.operation = stateCopy.result;
+                stateCopy.operation += "*";
                 flag = true; 
             }
 
@@ -347,17 +333,15 @@ function calculadora(){
 
 
         if(e.target.matches(".dividir")){
-            console.log("estado previo del state",state);
-
-            if(state.operation.endsWith("/")){
+            if(stateCopy.operation.endsWith("/")){
                 console.log("Encontre el / en la ultima posicion");
                 igual();
                 flag = true;
-            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+            }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
                 getPoint("/");
             }else{
-                state.operation = state.result;
-                state.operation += "/";
+                stateCopy.operation = stateCopy.result;
+                stateCopy.operation += "/";
                 flag = true; 
             }
 
@@ -367,44 +351,42 @@ function calculadora(){
 
 
         if(e.target.matches(".mas")){
-            console.log("estado previo del state",state);
 
-   
+            if(stateCopy.operation.endsWith("+")){
 
-            if(state.operation.endsWith("+")){
-
-                console.log("Encontre el + en la ultima posicion");
                 igual();
                 flag = true;
 
-            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+            }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
 
                 getPoint("+");
             }else{
-                state.operation = state.result;
-                state.operation += "+"; 
+                stateCopy.operation = stateCopy.result;
+                stateCopy.operation += "+";
                 flag = true;
                 
             }
 
-              
+     
+         
+            
+           
+
         }
 
         if(e.target.matches(".menos")){
-            console.log("estado previo del state",state);
-  
+
             if(state.operation.endsWith("-")){
 
-                console.log("Encontre el + en la ultima posicion");
                 igual();
                 flag = true;
 
-            }else if(state.result.endsWith(".") || state.result.endsWith(".0")){
+            }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
 
                 getPoint("-");
             }else{
-                state.operation = state.result;
-                state.operation += "-"; 
+                stateCopy.operation = stateCopy.result;
+                stateCopy.operation += "-"; 
                 flag = true;
                 
             }
