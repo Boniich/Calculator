@@ -1,5 +1,7 @@
-import matches from "./matches/matches.js";
-
+import getPoint from "./deletePoint/getPoint.js";
+import equal from "./equal/equal.js";
+import renderOperation from "./render/renderOperation/renderOperation.js";
+import renderResult from "./render/renderResult/renderResult.js";
 
 const state = {
     operation: "",
@@ -12,137 +14,65 @@ const state = {
 const getState = () => JSON.parse(JSON.stringify(state));
 const stateCopy = getState();
 
-function templateResult(){
-    let resultado = stateCopy.result;
-    return resultado;
-}
 
-function templateOperation(){
-
-    let operation = stateCopy.operation;
-    return operation;
-}
-
-function renderResult(){
-    console.log("Original:",state);
-    console.log("Copia: ",stateCopy);
-    const $result = document.getElementById("result");
-    $result.innerHTML = templateResult();
-}
-
-function renderOperation(){
-    const $renderOperation = document.getElementById("operation");
-    $renderOperation.innerHTML = templateOperation();
-}
+// const bandera = {
+//     flag: false,
+// }
 
 
-function darResultado(signoString, resultado){
-    // determinamos que signo es y dividimos el string
-    let valor = stateCopy.operation.split(signoString);
-    console.log(valor[0]);
-    console.log(stateCopy.result);
+// function getNumbers(number){
 
-    // comvertimos los string a numeros
-    let valor1 = Number.parseFloat(valor[0]);
-    let valorR = Number.parseFloat(stateCopy.result);
-
-    if(stateCopy.operation.endsWith("*")){
-        console.log("Multiplicar");
-        resultado = valor1 * valorR;
-        console.log(`valor 1: ${valor1} * Valor: ${valorR} = Resultado`,resultado);
-        stateCopy.operation = `${resultado}${signoString}`;
-        stateCopy.result = `${resultado}`;
-    }
-
-    if(stateCopy.operation.endsWith("/")){
-        console.log("Dividir");
-        if(valorR === 0) {alert("No es posible dividir por 0"); return;} 
-        resultado = valor1 / valorR;
-        console.log(`valor 1: ${valor1} / Valor: ${valorR} = Resultado`,resultado);
-        stateCopy.operation = `${resultado}${signoString}`;
-        stateCopy.result = `${resultado}`;
-    }
-
-    if(stateCopy.operation.endsWith("+")){
-        console.log("suman");
-        resultado = valor1 + valorR;
-        console.log(`valor 1: ${valor1} + Valor: ${valorR} = Resultado`,resultado);
-        stateCopy.operation = `${resultado}${signoString}`;
-        stateCopy.result = `${resultado}`;
-    }
     
 
-    if(stateCopy.operation.endsWith("-")){
-        console.log("Resta");
-        resultado = valor1 - valorR;
-        console.log(`valor 1: ${valor1} - Valor: ${valorR} = Resultado`,resultado);
-        stateCopy.operation = `${resultado}${signoString}`;
-        stateCopy.result = `${resultado}`;
-    }
-
-}
+//         if(stateCopy.result === "0" || bandera.flag === true){
+//             stateCopy.result = number;
+//             bandera.flag = false;
+//             document.querySelector(".btnComa").disabled = false;
+//         }else{
+//             stateCopy.result = stateCopy.result +=number;
+//         }
 
 
-function igual(){
 
-    let resultado = 0;
+//     // if(e.target.matches(".mas")){
 
+//     //     if(stateCopy.operation.endsWith("+")){
 
-    for(let i = 0; i<= stateCopy.operation.length;i++){
+//     //         // igual();
+//     //         equal(stateCopy);
+//     //         // flag = true;
+//     //         bandera.flag = true;
 
-        if(stateCopy.operation[i] === "*"){
+//     //     }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
 
-
-            darResultado("*");
-            break;
-        }else if(stateCopy.operation[i] === "/"){
-
+//     //         getPoint("+",stateCopy);
+//     //     }else{
+//     //         stateCopy.operation = stateCopy.result;
+//     //         stateCopy.operation += "+";
+//     //         // flag = true;
+//     //         bandera.flag = true;
             
-            darResultado("/");
-            break;
-            
+//     //     }
 
-        }else if(stateCopy.operation[i] === "+"){
+//     // }
 
-            darResultado("+", resultado);
-            
-            break;
-                
-        }else if(stateCopy.operation[i] === "-"){
-
-            darResultado("-", resultado);
-            break;
-        }
-
-
-
-    }
-
-    // actualizamos el estado
-    
-    renderOperation();
-    return resultado;
-
-}
-
-const getPoint = (signo) =>{
-    console.log("Esta coma debe ser borrada");
-    let point = stateCopy.result.split(".");
-    stateCopy.result = point[0];
-    stateCopy.operation = stateCopy.result+signo;
-}
+// }
 
 
 function calculadora(){
     
     let flag = false;
+    
+    // bandera.flag = false;
 
     document.addEventListener("click", (e) =>{
 
         e.preventDefault();
+      
 
         
         //modificamos el state cuando se hace click en alguno de los botones
+        
 
         if(e.target.matches(".btn1")){
 
@@ -155,6 +85,10 @@ function calculadora(){
             }
 
         }
+        // if(e.target.matches(".btn1")){
+        //     getNumbers("1");
+        // }
+        
 
         if(e.target.matches(".btn2")){
 
@@ -317,10 +251,11 @@ function calculadora(){
 
             if(stateCopy.operation.endsWith("*")){
                 console.log("Encontre el * en la ultima posicion");
-                igual();
+                // igual();
+                equal(stateCopy);
                 flag = true;
             }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
-                getPoint("*");
+                getPoint("*",stateCopy);
 
             }else{
                 stateCopy.operation = stateCopy.result;
@@ -335,10 +270,11 @@ function calculadora(){
         if(e.target.matches(".dividir")){
             if(stateCopy.operation.endsWith("/")){
                 console.log("Encontre el / en la ultima posicion");
-                igual();
+                // igual();
+                equal(stateCopy);
                 flag = true;
             }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
-                getPoint("/");
+                getPoint("/",stateCopy);
             }else{
                 stateCopy.operation = stateCopy.result;
                 stateCopy.operation += "/";
@@ -354,12 +290,13 @@ function calculadora(){
 
             if(stateCopy.operation.endsWith("+")){
 
-                igual();
+                // igual();
+                equal(stateCopy);
                 flag = true;
 
             }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
 
-                getPoint("+");
+                getPoint("+",stateCopy);
             }else{
                 stateCopy.operation = stateCopy.result;
                 stateCopy.operation += "+";
@@ -374,16 +311,41 @@ function calculadora(){
 
         }
 
+        
+        // if(e.target.matches(".mas")){
+
+        //     if(stateCopy.operation.endsWith("+")){
+
+        //         // igual();
+        //         equal(stateCopy);
+        //         // flag = true;
+        //         bandera.flag = true;
+
+        //     }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
+
+        //         getPoint("+",stateCopy);
+        //     }else{
+        //         stateCopy.operation = stateCopy.result;
+        //         stateCopy.operation += "+";
+        //         // flag = true;
+        //         bandera.flag = true;
+                
+        //     }
+
+     
+        // }
+
         if(e.target.matches(".menos")){
 
-            if(state.operation.endsWith("-")){
+            if(stateCopy.operation.endsWith("-")){
 
-                igual();
+                // igual();
+                equal(stateCopy);
                 flag = true;
 
             }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
 
-                getPoint("-");
+                getPoint("-",stateCopy);
             }else{
                 stateCopy.operation = stateCopy.result;
                 stateCopy.operation += "-"; 
@@ -394,19 +356,20 @@ function calculadora(){
 
         if(e.target.matches(".igual")){
             
-            igual();
+            // igual();
+            equal(stateCopy);
 
             
         }
 
-        renderResult();
-        renderOperation();
+        renderResult(state,stateCopy);
+        renderOperation(stateCopy);
     })
   
 
 }
 
-document.addEventListener("DOMContentLoaded", renderResult);
+document.addEventListener("DOMContentLoaded", renderResult(state,stateCopy));
 
 
 
