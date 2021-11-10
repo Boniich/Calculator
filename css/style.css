@@ -35,7 +35,7 @@ body{
                           "btn7 btn8 btn9 multiplicar"
                           "btn4 btn5 btn6 restar"
                           "btn1 btn2 btn3 sumar"
-                          "cero coma igual nada";
+                          "neg cero coma igual";
 }
 
 .btn{
@@ -123,6 +123,10 @@ body{
 
 .mas{
     grid-area: sumar;
+}
+
+.signoNegativo{
+    grid-area: neg;
 }
 
 .btn0{
