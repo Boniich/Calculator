@@ -1,4 +1,4 @@
-import calculadora from "./calculadora.js"
+import calculator from "./calculator.js"
 
 
-calculadora();
+calculator();
