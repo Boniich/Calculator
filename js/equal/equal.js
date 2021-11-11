@@ -30,6 +30,9 @@ const equal = (stateCopy) =>{
  
             makingAnOperation(stateCopy,"-");
             break;
+        }else if(stateCopy.operation[i] === "%"){
+            makingAnOperation(stateCopy,"%");
+            break;
         }
 
     }
