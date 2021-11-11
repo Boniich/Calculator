@@ -61,8 +61,6 @@ function calculator(){
 
         
         // comma
-    
-
         if(e.target.matches(".btnComa")){getPoint(e,stateCopy)}
 
         // resets

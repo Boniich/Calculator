@@ -6,7 +6,6 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
     
 
     if(stateCopy.operation.endsWith(signo)){
-
         equal(stateCopy);
         flag.overWrite = true;
 
