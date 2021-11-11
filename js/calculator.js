@@ -55,6 +55,10 @@ function calculator(){
 
         if(e.target.matches(".btn0")){getNumbers(flag,"0",stateCopy);}
 
+        //percentage
+
+        if(e.target.matches(".btnPorcentaje")){getBasicOperations(flag,"%",stateCopy);}
+
         
         // comma
     
