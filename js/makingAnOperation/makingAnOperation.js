@@ -44,6 +44,14 @@ const makingAnOperation = (stateCopy,signoString) =>{
         stateCopy.result = `${result}`;
     }
 
+    if(stateCopy.operation.endsWith("%")){
+        console.log("Porcentaje");
+        result = (valor1*valorR)/100;
+        console.log("Resultado del porcentaje es: ",result);
+        stateCopy.operation = `${result}${signoString}`;
+        stateCopy.result = `${result}`;
+    }
+
 }
 
 export default makingAnOperation;
