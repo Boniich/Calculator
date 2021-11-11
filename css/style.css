@@ -40,8 +40,10 @@ body{
 .btn{
     width: 70px;
     height: 30px;
-    border: 1px solid #ccc;
-
+    border-width: 1px;
+    border-color: #ccc;
+    padding: 2px 2px;
+   
 }
 
 .btn:hover{
