@@ -1,5 +1,5 @@
 import getBasicOperations from "./basicOperations/getBasicOperations.js";
-import equal from "./equal/equal.js";
+import makingAnOperation from "./makingAnOperation/makingAnOperation.js";
 import getNumbers from "./numbers/getNumbers.js";
 import getPoint from "./point/getPoint/getPoint.js";
 import renderOperation from "./render/renderOperation/renderOperation.js";
@@ -81,7 +81,11 @@ function calculator(){
 
         if(e.target.matches(".menos")){getBasicOperations(flag,"-",stateCopy);}
 
-        if(e.target.matches(".igual")){equal(stateCopy);}
+        if(e.target.matches(".igual")){
+            let signo = stateCopy.operation.substr(2);
+            console.log(`${signo}`);
+            makingAnOperation(stateCopy,signo);
+        }
 
         // Renders
 
