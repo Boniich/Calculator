@@ -1,12 +1,12 @@
 import deletePoint from "../point/deletePoint/deletePoint.js";
-import equal from "../equal/equal.js";
+import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
 
     
 
     if(stateCopy.operation.endsWith(signo)){
-        equal(stateCopy);
+        makingAnOperation(stateCopy,signo);
         flag.overWrite = true;
 
     }else if(stateCopy.result.endsWith(".") || stateCopy.result.endsWith(".0")){
