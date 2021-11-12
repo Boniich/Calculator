@@ -1,3 +1,4 @@
+import renderOperation from "../render/renderOperation/renderOperation.js";
 
 const makingAnOperation = (stateCopy,signoString) =>{
     // determinamos que signo es y dividimos el string
@@ -9,7 +10,7 @@ const makingAnOperation = (stateCopy,signoString) =>{
     // comvertimos los string a numeros
     let valor1 = Number.parseFloat(valor[0]);
     let valorR = Number.parseFloat(stateCopy.result);
-
+    
     if(stateCopy.operation.endsWith("*")){
         console.log("Multiplicar");
         result = valor1 * valorR;
@@ -51,6 +52,8 @@ const makingAnOperation = (stateCopy,signoString) =>{
         stateCopy.operation = `${result}${signoString}`;
         stateCopy.result = `${result}`;
     }
+
+    renderOperation(stateCopy);
 
 }
 
