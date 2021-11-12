@@ -1,8 +1,8 @@
-# version 1.1.0
+# version 1.1.1
 
 ## Features
 
-- Added the functionality of `%`
+- Refactor for deleted useless code
 
 ## Current problems
 
