@@ -16,9 +16,7 @@ js: contains all file with functions and objects.
 
 ## Curent Problems
 
-- lack of sag of buttons when pressed
-- Button `+/-`: his funcionality is not ready yet.  
-- Button `%`: his funcionality is not ready yet.  
+- Button `+/-`: his funcionality is not ready yet.   
 - Operations with negative numbers: It is not working properly.   
  
 ## How to run this proyect
