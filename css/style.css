@@ -30,12 +30,15 @@ body{
 .btns{
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-areas: "porcentaje ce c dividir"
+    grid-template-areas: "porcentaje ce c nada"
+                          "fracciones potencia raiz dividir"
                           "btn7 btn8 btn9 multiplicar"
                           "btn4 btn5 btn6 restar"
                           "btn1 btn2 btn3 sumar"
                           "neg cero coma igual";
+                          
 }
+
 
 .btn{
     width: 70px;
@@ -141,5 +144,22 @@ body{
 .igual{
     grid-area: igual;
 }
+
+.fracciones{
+    grid-area: fracciones;
+}
+
+.potencia{
+    grid-area: potencia;
+}
+
+.raiz{
+    grid-area: raiz;
+}
+
+.nada{
+    grid-area: nada;
+}
+
 
 
