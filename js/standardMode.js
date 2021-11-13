@@ -20,6 +20,7 @@ const stateCopy = getState();
 
 const flag = {
     overWrite: false,
+    toggleNegSing: false,
 }
 
 
@@ -55,6 +56,35 @@ function standardMode(){
 
         if(e.target.matches(".btn0")){getNumbers(flag,"0",stateCopy);}
 
+        //negative sing
+        // Not work fine yet
+        if(e.target.matches(".signoNegativo")){
+            console.log("agregando signo negativo");
+            
+
+            const $n = document.querySelector(".n");
+            const $signoNegative = document.querySelector(".signoNegativo");
+            // problema: si encuentra la 'n' despues de usar CE o C
+            // entra en el else, remueve la 'n' y al no tener el signo '-'
+            // el .split no puede separar y el olStateCopy[1] termina siendo 'undefined'
+            if(flag.toggleNegSing === false){
+                stateCopy.result = "-" + stateCopy.result;
+                
+                // $signoNegative.classList.add("n");
+                flag.toggleNegSing = true;
+            }else{
+                // $signoNegative.classList.remove("n");
+                flag.toggleNegSing = false;
+                const oldStateCopy = stateCopy.result.split("-");
+                console.log(oldStateCopy);
+                stateCopy.result = "0";
+                stateCopy.result = oldStateCopy[1];
+            }
+
+                
+        
+            
+        }
         //percentage
 
         if(e.target.matches(".btnPorcentaje")){getBasicOperations(flag,"%",stateCopy);}
@@ -74,7 +104,7 @@ function standardMode(){
         if(e.target.matches(".multiplicar")){getBasicOperations(flag,"*",stateCopy);}
 
 
-        if(e.target.matches(".dividir")){getBasicOperations(flag,"/",stateCopy);}
+        if(e.target.matches(".dividir")){getBasicOperations(flag,"÷",stateCopy);}
 
         
         if(e.target.matches(".mas")){getBasicOperations(flag,"+",stateCopy);}
