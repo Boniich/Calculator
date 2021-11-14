@@ -105,41 +105,29 @@ function standardMode(){
         // Cuando es una suma, se dividen cada "1/result" y se suman entre si
 
         if(e.target.matches(".fracciones")){
+
             let operation = new String(stateCopy.operation);
             let result = stateCopy.result;  
-
-            //+ determina que un caracter puede aparecer 1 o mas veces
-            //el . es comodin 
-
-            // casi al 90% que esta es la expresion correcta para hacer cuentas
-            //  esta expresion contemplata todo, excepto los numeros flotantes
-            // let expres = /(1\/\(.[0-9]+\)).(1\/\(.[0-9]+\))/g;
-            // Casi un 95%
-            // let expres = /(1\/\(\-?[0-9]+\)).(1\/\(\-?[0-9]+\))/g;
-            let expres = /(1\/\(\-?[0-9 | .]+\)).(1\/\(\-?[0-9 | .]+\))/g;
-            let test = "1/(1)";
-            let signo = "+";
-            let test2 = `1/(100)+1/(1005)`;
-    
-            console.log(test,expres.test(test));
-            console.log(test2,expres.test(test2));
-     
-
+            
+            let expression = /(1\/\(\-?[0-9 | .]+\))./g;
+            let expression2 = /([0-9 | .]+.)/g
 
             if(result === "0"){
                 alert("No es posible dividir por 0");
-                return};
+                return;
+            }
             
-            if(operation.endsWith("+") || operation.endsWith("-") || operation.endsWith("*")){
+
+            if(expression.test(operation) || expression2.test(operation)){
                 stateCopy.operation += `1/(${result})`;
                 stateCopy.result = 1/result;
+                flag.overWrite = true;
+
             }else{
                 stateCopy.operation = `1/(${result})`;
                 stateCopy.result = 1/result;
                 flag.overWrite = true;
-            }
-
-         
+           }
         }
 
         if(e.target.matches(".igual")){
