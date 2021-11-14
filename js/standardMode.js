@@ -20,7 +20,6 @@ const stateCopy = getState();
 
 const flag = {
     overWrite: false,
-    toggleNegSing: false,
 }
 
 
@@ -57,34 +56,25 @@ function standardMode(){
         if(e.target.matches(".btn0")){getNumbers(flag,"0",stateCopy);}
 
         //negative sing
-        // Not work fine yet
         if(e.target.matches(".signoNegativo")){
-            console.log("agregando signo negativo");
             
+            let result = new String(stateCopy.result);
+            
+            let expression = /\-[0-9]+/
 
-            const $n = document.querySelector(".n");
-            const $signoNegative = document.querySelector(".signoNegativo");
-            // problema: si encuentra la 'n' despues de usar CE o C
-            // entra en el else, remueve la 'n' y al no tener el signo '-'
-            // el .split no puede separar y el olStateCopy[1] termina siendo 'undefined'
-            if(flag.toggleNegSing === false){
+            if(!expression.test(stateCopy.result)){
+                console.log("agregando signo menos");
                 stateCopy.result = "-" + stateCopy.result;
-                
-                // $signoNegative.classList.add("n");
-                flag.toggleNegSing = true;
             }else{
-                // $signoNegative.classList.remove("n");
-                flag.toggleNegSing = false;
-                const oldStateCopy = stateCopy.result.split("-");
-                console.log(oldStateCopy);
-                stateCopy.result = "0";
-                stateCopy.result = oldStateCopy[1];
-            }
 
-                
+                let resultFragments = result.split("-");
+                stateCopy.result = "0";
+                stateCopy.result = resultFragments[1];
+
+            }
         
-            
         }
+
         //percentage
 
         if(e.target.matches(".btnPorcentaje")){getBasicOperations(flag,"%",stateCopy);}
@@ -110,6 +100,47 @@ function standardMode(){
         if(e.target.matches(".mas")){getBasicOperations(flag,"+",stateCopy);}
 
         if(e.target.matches(".menos")){getBasicOperations(flag,"-",stateCopy);}
+
+        //fracciones
+        // Cuando es una suma, se dividen cada "1/result" y se suman entre si
+
+        if(e.target.matches(".fracciones")){
+            let operation = new String(stateCopy.operation);
+            let result = stateCopy.result;  
+
+            //+ determina que un caracter puede aparecer 1 o mas veces
+            //el . es comodin 
+
+            // casi al 90% que esta es la expresion correcta para hacer cuentas
+            //  esta expresion contemplata todo, excepto los numeros flotantes
+            // let expres = /(1\/\(.[0-9]+\)).(1\/\(.[0-9]+\))/g;
+            // Casi un 95%
+            // let expres = /(1\/\(\-?[0-9]+\)).(1\/\(\-?[0-9]+\))/g;
+            let expres = /(1\/\(\-?[0-9 | .]+\)).(1\/\(\-?[0-9 | .]+\))/g;
+            let test = "1/(1)";
+            let signo = "+";
+            let test2 = `1/(100)+1/(1005)`;
+    
+            console.log(test,expres.test(test));
+            console.log(test2,expres.test(test2));
+     
+
+
+            if(result === "0"){
+                alert("No es posible dividir por 0");
+                return};
+            
+            if(operation.endsWith("+") || operation.endsWith("-") || operation.endsWith("*")){
+                stateCopy.operation += `1/(${result})`;
+                stateCopy.result = 1/result;
+            }else{
+                stateCopy.operation = `1/(${result})`;
+                stateCopy.result = 1/result;
+                flag.overWrite = true;
+            }
+
+         
+        }
 
         if(e.target.matches(".igual")){
             let signo = stateCopy.operation.substr(2);
