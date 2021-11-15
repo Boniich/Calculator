@@ -108,9 +108,14 @@ function standardMode(){
 
             let operation = new String(stateCopy.operation);
             let result = stateCopy.result;  
-            
+            // Esta expression regular sirve para casos como "1/(10)+"
             let expression = /(1\/\(\-?[0-9 | .]+\))./g;
-            let expression2 = /([0-9 | .]+.)/g
+            // Esta expression regular sirve para casos como "3+"
+            let expression2 = /([0-9 | .]+[\+ | \- | \* | \÷])/g
+
+            let exp1 = expression.test(operation);
+            let exp2 = expression2.test(operation);
+
 
             if(result === "0"){
                 alert("No es posible dividir por 0");
@@ -118,7 +123,7 @@ function standardMode(){
             }
             
 
-            if(expression.test(operation) || expression2.test(operation)){
+            if(exp1 === true || exp2 === true){
                 stateCopy.operation += `1/(${result})`;
                 stateCopy.result = 1/result;
                 flag.overWrite = true;
@@ -128,6 +133,7 @@ function standardMode(){
                 stateCopy.result = 1/result;
                 flag.overWrite = true;
            }
+
         }
 
         if(e.target.matches(".igual")){
