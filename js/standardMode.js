@@ -1,10 +1,10 @@
-import getBasicOperations from "./basicOperations/getBasicOperations.js";
-import makingAnOperation from "./makingAnOperation/makingAnOperation.js";
-import getNumbers from "./numbers/getNumbers.js";
-import getPoint from "./point/getPoint/getPoint.js";
-import renderOperation from "./render/renderOperation/renderOperation.js";
-import renderResult from "./render/renderResult/renderResult.js";
-import resets from "./resets/resets.js";
+import getBasicOperations from "./functionalities/basicOperations/getBasicOperations.js";
+import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
+import getPoint from "./functionalities/point/getPoint/getPoint.js";
+import renderOperation from "./functionalities/render/renderOperation/renderOperation.js";
+import getNumbers from "./functionalities/numbers/getNumbers.js";
+import renderResult from "./functionalities/render/renderResult/renderResult.js";
+import resets from "./functionalities/resets/resets.js";
 
 const state = {
     operation: "",
@@ -24,7 +24,6 @@ const flag = {
 
 
 function standardMode(){
-    
 
     document.addEventListener("click", (e) =>{
 
@@ -104,6 +103,7 @@ function standardMode(){
         //fracciones
         // Cuando es una suma, se dividen cada "1/result" y se suman entre si
 
+
         if(e.target.matches(".fracciones")){
 
             let operation = new String(stateCopy.operation);
@@ -121,10 +121,10 @@ function standardMode(){
                 alert("No es posible dividir por 0");
                 return;
             }
-            
+
 
             if(exp1 === true || exp2 === true){
-                stateCopy.operation += `1/(${result})`;
+                stateCopy.operation += fraccion;
                 stateCopy.result = 1/result;
                 flag.overWrite = true;
 
