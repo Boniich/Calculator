@@ -5,6 +5,7 @@ import renderOperation from "./functionalities/render/renderOperation/renderOper
 import getNumbers from "./functionalities/numbers/getNumbers.js";
 import renderResult from "./functionalities/render/renderResult/renderResult.js";
 import resets from "./functionalities/resets/resets.js";
+import fraction from "./functionalities/fractions/fraction/fraction.js";
 
 const state = {
     operation: "",
@@ -101,49 +102,7 @@ function standardMode(){
         if(e.target.matches(".menos")){getBasicOperations(flag,"-",stateCopy);}
 
         //fracciones
-        // Cuando es una suma, se dividen cada "1/result" y se suman entre si
-
-        const specialOperations = (exp1,exp2,renderSpecialOperation,renderSpecialResult) =>{
-
-            if(exp1 === true || exp2 === true){
-                stateCopy.operation += renderSpecialOperation;
-                stateCopy.result = renderSpecialResult;
-                flag.overWrite = true;
-
-            }else{
-                stateCopy.operation = renderSpecialOperation;
-                stateCopy.result = renderSpecialResult;
-                flag.overWrite = true;
-           }
-
-        }
-
-
-        if(e.target.matches(".fracciones")){
-
-            let operation = new String(stateCopy.operation);
-            let result = stateCopy.result;  
-            // Esta expression regular sirve para casos como "1/(10)+"
-            let expression = /(1\/\(\-?[0-9 | .]+\))./g;
-            // Esta expression regular sirve para casos como "3+"
-            let expression2 = /([0-9 | .]+[\+ | \- | \* | \÷])/g
-
-            let exp1 = expression.test(operation);
-            let exp2 = expression2.test(operation);
-
-
-
-            let fractionOperation = `1/(${result})`;
-            let fractionResult = 1/result;
-
-
-            if(result === "0"){
-                alert("No es posible dividir por 0");
-                return;
-            }
-
-            specialOperations(exp1,exp2,fractionOperation,fractionResult);
-        }
+        if(e.target.matches(".fracciones")){fraction(stateCopy,flag);}
 
         // potencia
 
