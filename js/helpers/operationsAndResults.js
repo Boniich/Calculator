@@ -1,4 +1,6 @@
-const operationsAndResults = (stateCopy,signo,result,value1,value2) =>{
+const operationsAndResults = (stateCopy,signo,value1,value2) =>{
+
+    let result = 0;
 
     switch (signo) {
 
