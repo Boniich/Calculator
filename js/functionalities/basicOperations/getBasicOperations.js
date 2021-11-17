@@ -1,6 +1,6 @@
 import deletePoint from "../point/deletePoint/deletePoint.js";
 import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
-import testingOperation from "../../helpers/testingOperations/testingOperation.js";
+import testingOperation from "../../helpers/testingOperations/testingOperations.js";
 import fractionsOperation from "../fractions/fractionsOperations/fractionsOperation.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
