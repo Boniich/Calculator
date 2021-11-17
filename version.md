@@ -18,8 +18,12 @@
 - Now is possble an operation is as a expression like `1/(3) + 4`
 - is possible make negative operation with fractions - still need be teste a lot-
 
-### Potencia
-- Added buttons of `x^`.
+### Potency
+
+- Added button of `x^`.
+- Button of potence add a sqr(x) in operation taking the number of `result` and after add the sqr(x) in operation, show the result of potence in `result`.  
+- Now it is possible add expression like: `sqr(3) + sqr(3)`, `sqr(3) + 3` and `3 + sqr(3)`
+- Now it is possible add operations like `sqr(3) + sqr(3)`, `sqr(3) + ` and `3 + sqr(3)`
 
 ### Raiz
 
@@ -27,7 +31,7 @@
 
 ## Features in process
 
-- Not added funcionality of `x` and `√`
+- Not added funcionality `√`
 
 
 
@@ -41,7 +45,10 @@
 - The point is repeting more than 1 time
 - When change the sing if the `result` is different to the `operation` it overwrite the value of `operation` with `result`
 - If you have the expression `3+1/(3)` and press again `1/x` it add a new `1/(x)` instance of remplace the denominator of orignal `1/(x)`
-- If you have the expression `1/(3)+1/(3)` and press again `1/x` it add a new `1/(x)` at operation instance of remplace the denominator of orignal `1/(x)`
+- If you have the expression `1/(3)+1/(3)` and press again `1/x` it add a new `1/(x)` at operation instance of remplace the denominator of last `1/(x)`
+
+- If you have the expression `3 + sqr(3)` and press again `x^` it add a new `sqr(x)` instance of remplace the denominator of last `sqr(x)`
+- If you have the expression `sqr(x) + sqr(x)` and press again `x^` it add a new `sqr(x)` at operation instance of remplace the denominator of last `sqr(x)`
 
 
 
