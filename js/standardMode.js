@@ -103,6 +103,21 @@ function standardMode(){
         //fracciones
         // Cuando es una suma, se dividen cada "1/result" y se suman entre si
 
+        const specialOperations = (exp1,exp2,renderSpecialOperation,renderSpecialResult) =>{
+
+            if(exp1 === true || exp2 === true){
+                stateCopy.operation += renderSpecialOperation;
+                stateCopy.result = renderSpecialResult;
+                flag.overWrite = true;
+
+            }else{
+                stateCopy.operation = renderSpecialOperation;
+                stateCopy.result = renderSpecialResult;
+                flag.overWrite = true;
+           }
+
+        }
+
 
         if(e.target.matches(".fracciones")){
 
@@ -117,24 +132,44 @@ function standardMode(){
             let exp2 = expression2.test(operation);
 
 
+
+            let fractionOperation = `1/(${result})`;
+            let fractionResult = 1/result;
+
+
             if(result === "0"){
                 alert("No es posible dividir por 0");
                 return;
             }
 
-
-            if(exp1 === true || exp2 === true){
-                stateCopy.operation += fraccion;
-                stateCopy.result = 1/result;
-                flag.overWrite = true;
-
-            }else{
-                stateCopy.operation = `1/(${result})`;
-                stateCopy.result = 1/result;
-                flag.overWrite = true;
-           }
-
+            specialOperations(exp1,exp2,fractionOperation,fractionResult);
         }
+
+        // potencia
+
+        if(e.target.matches(".potencia")){
+
+            let operation = new String(stateCopy.operation);
+            let result = stateCopy.result;  
+
+            let expression = /(sqr\([0-9 | .]+\).)/g;
+            let expression2 = /([0-9 | .]+[\+ | \- | \* | \÷])/g
+
+            let exp1 = expression.test(operation);
+            let exp2 = expression2.test(operation);
+
+            
+            console.log(exp1);
+            console.log(exp2);
+
+
+            let potencyOperation = `sqr(${result})`;
+            let potencyResult = result*result;
+
+
+            specialOperations(exp1,exp2,potencyOperation,potencyResult);
+        }
+
 
         if(e.target.matches(".igual")){
             let signo = stateCopy.operation.substr(2);
