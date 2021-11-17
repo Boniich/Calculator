@@ -1,7 +1,7 @@
 import deletePoint from "../point/deletePoint/deletePoint.js";
 import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
 import testingOperation from "../../helpers/testingOperations/testingOperations.js";
-import fractionsOperation from "../fractions/fractionsOperations/fractionsOperation.js";
+import fractionsOperations from "../fractions/fractionsOperations/fractionsOperations.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
 
@@ -117,7 +117,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
 
     if(exp1 === true ||exp2 === true || exp3 === true){
 
-        fractionsOperation(flag,stateCopy,exp1,exp2,exp3);
+        fractionsOperations(flag,stateCopy,exp1,exp2,exp3);
 
        
     }else if(exp4 === true || exp5 === true || exp6 === true){
