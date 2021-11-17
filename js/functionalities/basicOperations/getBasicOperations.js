@@ -1,25 +1,13 @@
 import deletePoint from "../point/deletePoint/deletePoint.js";
 import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
-import operationsAndResults from "../../helpers/operationsAndResults.js";
+import testingOperation from "../../helpers/testingOperations/testingOperation.js";
+import fractionsOperation from "../fractions/fractionsOperations/fractionsOperation.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
 
    
     let operation = new String(stateCopy.operation);
     let result = new String(stateCopy.result);
-
-    const operations = (suma,resta,multiplicacion,division,value1,value2) =>{
-
-        if(suma.test(operation)){operationsAndResults(stateCopy,"+",value1,value2);}
-                
-        if(resta.test(operation)){operationsAndResults(stateCopy,"-",value1,value2);}
-
-        if(multiplicacion.test(operation)){operationsAndResults(stateCopy,"*",value1,value2);}
-
-        if(division.test(operation)){operationsAndResults(stateCopy,"÷",value1,value2);}
-
-    }
-
     
     // fractions
 
@@ -31,100 +19,6 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
     let exp1 = expres.test(operation);
     let exp2 = expression2.test(operation);
     let exp3 = expression3.test(operation);
-
-
-    const fractionsOperations = () =>{
-
-
-        if(exp1 === true){
-
-            console.log("Two Fractions");
-
-            let extractNumbers = /1\/\((\-?[0-9 | .]+)\).1\/\((\-?[0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-    
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = Number.parseFloat(numbers[2]);
-    
-            value1 = 1/value1;
-            value2 = 1/value2;
-    
-    
-            // operations
-            let suma = /(1\/\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g;
-            let resta = /(1\/\(\-?[0-9 | .]+\))\-(1\/\(\-?[0-9 | .]+\))/g;
-            let multiplicacion = /(1\/\(\-?[0-9 | .]+\))\*(1\/\(\-?[0-9 | .]+\))/g;
-            let division = /(1\/\(\-?[0-9 | .]+\))\÷(1\/\(\-?[0-9 | .]+\))/g;
-
-            operations(suma,resta,multiplicacion,division,value1,value2);
-
-            
-            
-        }
-
-
-        if(exp2 === true){
-
-            console.log("Number and fraction");
-
-            let extractNumbers = /([0-9 | .]+).1\/\((\-?[0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = Number.parseFloat(numbers[2]);
-
-
-            //operations
-            let suma = /([0-9 | .]+\+1\/\([0-9 | .]+\))/g
-            let resta = /([0-9 | .]+\-1\/\([0-9 | .]+\))/g
-            let multiplicacion = /([0-9 | .]+\*1\/\([0-9 | .]+\))/g
-            let division = /([0-9 | .]+\÷1\/\([0-9 | .]+\))/g
-
-            value2 = 1/value2;
-
-            operations(suma,resta,multiplicacion,division,value1,value2);
-            
-            
-        }
-
-
-        if(exp3 === true){
-
-            console.log("Fraction and number")
-            let extractNumbers = /1\/\((\-?[0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = stateCopy.result;
-            value1 = 1/value1;
-
-            console.log(value1);
-            console.log(value2);
-
-            let suma = /(1\/\([0-9 | .]+\)\+)/g
-            let resta = /(1\/\([0-9 | .]+\)\-)/g
-            let multiplicacion = /(1\/\([0-9 | .]+\)\*)/g
-            let division = /(1\/\([0-9 | .]+\)\÷)/g
-
-            operations(suma,resta,multiplicacion,division,value1,value2);
-
-            flag.overWrite = true;
-            
-        }
-
-
-
-
-
-
-
-
-
-
-    } 
 
 
     //potency
@@ -160,7 +54,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
             let multiplicacion = /(sqr\([0-9 | .]+\))\*(sqr\([0-9 | .]+\))/g;
             let division = /(sqr\([0-9 | .]+\))\÷(sqr\([0-9 | .]+\))/g;
 
-            operations(suma,resta,multiplicacion,division,value1,value2);
+            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
 
 
         }
@@ -185,7 +79,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
             let multiplicacion = /([0-9 | .]+)\*(sqr\([0-9 | .]+\))/g;
             let division = /([0-9 | .]+)\÷(sqr\([0-9 | .]+\))/g;
 
-            operations(suma,resta,multiplicacion,division,value1,value2);
+            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
 
         }
 
@@ -209,7 +103,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
             let multiplicacion = /(sqr\([0-9 | .]+\)\*$)/g
             let division = /(sqr\([0-9 | .]+\)\÷$)/g
 
-            operations(suma,resta,multiplicacion,division,value1,value2);
+            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
 
         }
 
@@ -223,7 +117,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
 
     if(exp1 === true ||exp2 === true || exp3 === true){
 
-        fractionsOperations();
+        fractionsOperation(flag,stateCopy,exp1,exp2,exp3);
 
        
     }else if(exp4 === true || exp5 === true || exp6 === true){
