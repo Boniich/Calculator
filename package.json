@@ -1,0 +1,23 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "This calculator was created just looking `windows calculator - standar mode-`. I didnt use any external scource more than some string methods.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EzequielBonino/Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EzequielBonino/Calculator/issues"
+  },
+  "homepage": "https://github.com/EzequielBonino/Calculator#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
