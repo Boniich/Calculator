@@ -32,9 +32,9 @@ body{
     grid-template-columns: auto auto auto auto;
     grid-template-areas: "porcentaje ce c nada"
                           "fracciones potencia raiz dividir"
-                          "btn7 btn8 btn9 multiplicar"
-                          "btn4 btn5 btn6 restar"
-                          "btn1 btn2 btn3 sumar"
+                          "btn7 btn8 btn9 multiply"
+                          "btn4 btn5 btn6 subtract"
+                          "btn1 btn2 btn3 sum"
                           "neg cero coma igual";
                           
 }
@@ -105,8 +105,8 @@ body{
     grid-area: btn6;
 }
 
-.multiplicar{
-    grid-area: multiplicar;
+.multply{
+    grid-area: multiply;
 }
 
 .btn1{
@@ -121,12 +121,12 @@ body{
     grid-area: btn3;
 }
 
-.menos{
-    grid-area: restar;
+.subtract{
+    grid-area: subtract;
 }
 
-.mas{
-    grid-area: sumar;
+.sum{
+    grid-area: sum;
 }
 
 .signoNegativo{

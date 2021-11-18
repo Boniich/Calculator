@@ -2,6 +2,7 @@ import deletePoint from "../point/deletePoint/deletePoint.js";
 import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
 import fractionsOperations from "../fractions/fractionsOperations/fractionsOperations.js";
 import potencyOperations from "../allPotency/potencyOperations/potencyOperations.js";
+import squareRootOperations from "../allSquareRoot/squareRootOperations/squareRootOperations.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
 
@@ -31,6 +32,15 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
     let exp6 = expression6.test(operation);
 
 
+    //Square Root
+
+    let expression7 = /(√\([0-9 | .]+\)).(√\([0-9 | .]+\))/g;
+    let expression8 = /([0-9 | .]+).(√\([0-9 | .]+\))/g
+    let expression9 = /(√\([0-9 | .]+\).$)/g
+    let exp7 = expression7.test(operation);
+    let exp8 = expression8.test(operation);
+    let exp9 = expression9.test(operation);
+
     if(exp1 === true ||exp2 === true || exp3 === true){
 
         fractionsOperations(flag,stateCopy,exp1,exp2,exp3);
@@ -40,6 +50,11 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
 
         potencyOperations(flag,stateCopy,operation,exp4,exp5,exp6);
 
+    }else if(exp7 === true || exp8 === true || exp9 === true){
+
+        squareRootOperations(flag,stateCopy,operation,exp7,exp8,exp9);
+
+        
     }else if(operation.endsWith(signo)){
         makingAnOperation(stateCopy,signo);
         flag.overWrite = true;

@@ -16,11 +16,11 @@ const potencyAndNumber = (flag,stateCopy,operation) =>{
 
     // operations
     let suma = /(sqr\([0-9 | .]+\)\+$)/g
-    let resta = /(sqr\([0-9 | .]+\)\-$)/g
-    let multiplicacion = /(sqr\([0-9 | .]+\)\*$)/g
+    let subtract = /(sqr\([0-9 | .]+\)\-$)/g
+    let multiply = /(sqr\([0-9 | .]+\)\*$)/g
     let division = /(sqr\([0-9 | .]+\)\÷$)/g
 
-    testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
+    testingOperation(stateCopy,operation,suma,subtract,multiply,division,value1,value2);
 
     flag.overWrite = true;
 

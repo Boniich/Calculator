@@ -15,12 +15,12 @@ const numberAndPotency = (stateCopy,operation) =>{
 
 
     // operations
-    let suma = /([0-9 | .]+)\+(sqr\([0-9 | .]+\))/g;
-    let resta = /([0-9 | .]+)\-(sqr\([0-9 | .]+\))/g;
-    let multiplicacion = /([0-9 | .]+)\*(sqr\([0-9 | .]+\))/g;
+    let sum = /([0-9 | .]+)\+(sqr\([0-9 | .]+\))/g;
+    let subtract = /([0-9 | .]+)\-(sqr\([0-9 | .]+\))/g;
+    let multiply = /([0-9 | .]+)\*(sqr\([0-9 | .]+\))/g;
     let division = /([0-9 | .]+)\÷(sqr\([0-9 | .]+\))/g;
 
-    testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
+    testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);
 
 }
 

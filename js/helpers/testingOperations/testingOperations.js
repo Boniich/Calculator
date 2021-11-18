@@ -1,12 +1,12 @@
 import operations from "../operations/operations.js";
 
-const testingOperation = (stateCopy,operation,suma,resta,multiplicacion,division,value1,value2) =>{
+const testingOperation = (stateCopy,operation,sum,subtract,multiply,division,value1,value2) =>{
 
-    if(suma.test(operation)){operations(stateCopy,"+",value1,value2);}
+    if(sum.test(operation)){operations(stateCopy,"+",value1,value2);}
             
-    if(resta.test(operation)){operations(stateCopy,"-",value1,value2);}
+    if(subtract.test(operation)){operations(stateCopy,"-",value1,value2);}
 
-    if(multiplicacion.test(operation)){operations(stateCopy,"*",value1,value2);}
+    if(multiply.test(operation)){operations(stateCopy,"*",value1,value2);}
 
     if(division.test(operation)){operations(stateCopy,"÷",value1,value2);}
 

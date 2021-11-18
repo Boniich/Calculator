@@ -15,12 +15,12 @@ const twoFractions = (stateCopy,operation) =>{
     value2 = 1/value2;
         
     // operations
-    let suma = /(1\/\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g;
-    let resta = /(1\/\(\-?[0-9 | .]+\))\-(1\/\(\-?[0-9 | .]+\))/g;
-    let multiplicacion = /(1\/\(\-?[0-9 | .]+\))\*(1\/\(\-?[0-9 | .]+\))/g;
+    let sum = /(1\/\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g;
+    let subtract = /(1\/\(\-?[0-9 | .]+\))\-(1\/\(\-?[0-9 | .]+\))/g;
+    let multiply = /(1\/\(\-?[0-9 | .]+\))\*(1\/\(\-?[0-9 | .]+\))/g;
     let division = /(1\/\(\-?[0-9 | .]+\))\÷(1\/\(\-?[0-9 | .]+\))/g;
                 
-    testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
+    testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);
 }
 
 export default twoFractions;

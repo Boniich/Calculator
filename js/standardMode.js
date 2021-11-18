@@ -7,6 +7,7 @@ import renderResult from "./functionalities/render/renderResult/renderResult.js"
 import resets from "./functionalities/resets/resets.js";
 import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
+import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
 
 const state = {
     operation: "",
@@ -92,22 +93,26 @@ function standardMode(){
         // Operacions
 
 
-        if(e.target.matches(".multiplicar")){getBasicOperations(flag,"*",stateCopy);}
+        if(e.target.matches(".multiply")){getBasicOperations(flag,"*",stateCopy);}
 
 
         if(e.target.matches(".dividir")){getBasicOperations(flag,"÷",stateCopy);}
 
         
-        if(e.target.matches(".mas")){getBasicOperations(flag,"+",stateCopy);}
+        if(e.target.matches(".sum")){getBasicOperations(flag,"+",stateCopy);}
 
-        if(e.target.matches(".menos")){getBasicOperations(flag,"-",stateCopy);}
+        if(e.target.matches(".subtract")){getBasicOperations(flag,"-",stateCopy);}
 
         //fracciones
-        if(e.target.matches(".fracciones")){fraction(stateCopy,flag);}
+        if(e.target.matches(".fraction")){fraction(stateCopy,flag);}
 
         // potencia
 
-        if(e.target.matches(".potencia")){potency(stateCopy,flag);}
+        if(e.target.matches(".potency")){potency(stateCopy,flag);}
+
+        //squareRoot
+
+        if(e.target.matches(".squareRoot")){squareRoot(stateCopy,flag);};
 
 
         if(e.target.matches(".igual")){
