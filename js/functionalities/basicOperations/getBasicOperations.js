@@ -1,7 +1,7 @@
 import deletePoint from "../point/deletePoint/deletePoint.js";
 import makingAnOperation from "../makingAnOperation/makingAnOperation.js";
-import testingOperation from "../../helpers/testingOperations/testingOperations.js";
 import fractionsOperations from "../fractions/fractionsOperations/fractionsOperations.js";
+import potencyOperations from "../allPotency/potencyOperations/potencyOperations.js";
 
 const getBasicOperations = (flag,signo,stateCopy) =>{
 
@@ -31,90 +31,6 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
     let exp6 = expression6.test(operation);
 
 
-    const potencyOperations = () =>{
-
-        if(exp4 === true){
-
-            console.log("Two Potency")
-
-            let extractNumbers = /sqr\(([0-9 | .]+)\).sqr\(([0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-    
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = Number.parseFloat(numbers[2]);
-    
-            value1 = value1*value1;
-            value2 = value2*value2;
-    
-    
-            // operations
-            let suma = /(sqr\([0-9 | .]+\))\+(sqr\([0-9 | .]+\))/g;
-            let resta = /(sqr\([0-9 | .]+\))\-(sqr\([0-9 | .]+\))/g;
-            let multiplicacion = /(sqr\([0-9 | .]+\))\*(sqr\([0-9 | .]+\))/g;
-            let division = /(sqr\([0-9 | .]+\))\÷(sqr\([0-9 | .]+\))/g;
-
-            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
-
-
-        }
-
-        if(exp5 === true){
-
-            console.log("Number and Potency");
-
-            let extractNumbers = /([0-9 | .]+).sqr\(([0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-    
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = Number.parseFloat(numbers[2]);
-    
-            value2 = value2*value2;
-    
-    
-            // operations
-            let suma = /([0-9 | .]+)\+(sqr\([0-9 | .]+\))/g;
-            let resta = /([0-9 | .]+)\-(sqr\([0-9 | .]+\))/g;
-            let multiplicacion = /([0-9 | .]+)\*(sqr\([0-9 | .]+\))/g;
-            let division = /([0-9 | .]+)\÷(sqr\([0-9 | .]+\))/g;
-
-            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
-
-        }
-
-        if(exp6 === true){
-
-            console.log("Potency and Number");
-
-            let extractNumbers = /sqr\(([0-9 | .]+)\)/g;
-            let numbers = extractNumbers.exec(operation);
-            console.log(numbers);
-    
-            let value1 = Number.parseFloat(numbers[1]);
-            let value2 = stateCopy.result;
-    
-            value2 = value2*value2;
-    
-    
-            // operations
-            let suma = /(sqr\([0-9 | .]+\)\+$)/g
-            let resta = /(sqr\([0-9 | .]+\)\-$)/g
-            let multiplicacion = /(sqr\([0-9 | .]+\)\*$)/g
-            let division = /(sqr\([0-9 | .]+\)\÷$)/g
-
-            testingOperation(stateCopy,operation,suma,resta,multiplicacion,division,value1,value2);
-
-        }
-
-       
-
-    }
-
-
-   
-
-
     if(exp1 === true ||exp2 === true || exp3 === true){
 
         fractionsOperations(flag,stateCopy,exp1,exp2,exp3);
@@ -122,7 +38,7 @@ const getBasicOperations = (flag,signo,stateCopy) =>{
        
     }else if(exp4 === true || exp5 === true || exp6 === true){
 
-        potencyOperations();
+        potencyOperations(flag,stateCopy,operation,exp4,exp5,exp6);
 
     }else if(operation.endsWith(signo)){
         makingAnOperation(stateCopy,signo);
