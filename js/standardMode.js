@@ -6,6 +6,7 @@ import getNumbers from "./functionalities/numbers/getNumbers.js";
 import renderResult from "./functionalities/render/renderResult/renderResult.js";
 import resets from "./functionalities/resets/resets.js";
 import fraction from "./functionalities/fractions/fraction/fraction.js";
+import potency from "./functionalities/allPotency/potency/potency.js";
 
 const state = {
     operation: "",
@@ -106,28 +107,7 @@ function standardMode(){
 
         // potencia
 
-        if(e.target.matches(".potencia")){
-
-            let operation = new String(stateCopy.operation);
-            let result = stateCopy.result;  
-
-            let expression = /(sqr\([0-9 | .]+\).)/g;
-            let expression2 = /([0-9 | .]+[\+ | \- | \* | \÷])/g
-
-            let exp1 = expression.test(operation);
-            let exp2 = expression2.test(operation);
-
-            
-            console.log(exp1);
-            console.log(exp2);
-
-
-            let potencyOperation = `sqr(${result})`;
-            let potencyResult = result*result;
-
-
-            specialOperations(exp1,exp2,potencyOperation,potencyResult);
-        }
+        if(e.target.matches(".potencia")){potency(stateCopy,flag);}
 
 
         if(e.target.matches(".igual")){
