@@ -28,17 +28,21 @@
 ### Raiz
 
 - Added buttons of `√`.
+- Button of potence add a sqr(x) in operation taking the number of `result` and after add the sqr(x) in operation, show the result of potence in `result`.  
+- Now it is possible add expression like: `√(3) + √(3)`, `√(3) + 3` and `3 + √(3)`
+- Now it is possible add operations like `√(3) + √(3)`, `√(3) + ` and `3 + √(3)`
+
+## Test
+
+- Added unit tests
 
 ## Features in process
-
-- Not added funcionality `√`
 
 
 
 ## Problems Fixed
 - Button `+/-`: Add and quit the sign `-` without give an `undefined`.
-- Fixed that was not possible change of denominator when it was a single expression like `1/(3)`
-- Fixed that operations like `1/(3) + 4` gived a wrong score
+
 
 ## Current Problems
 
