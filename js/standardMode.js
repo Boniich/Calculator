@@ -1,5 +1,3 @@
-import getBasicOperations from "./functionalities/basicOperations/getBasicOperations.js";
-import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
 import getPoint from "./functionalities/point/getPoint/getPoint.js";
 import renderOperation from "./functionalities/render/renderOperation/renderOperation.js";
 import getNumbers from "./functionalities/numbers/getNumbers.js";
@@ -8,6 +6,7 @@ import resets from "./functionalities/resets/resets.js";
 import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
 import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
+import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
 
 const state = {
     operation: "",
@@ -79,7 +78,7 @@ function standardMode(){
 
         //percentage
 
-        if(e.target.matches(".btnPorcentaje")){getBasicOperations(flag,"%",stateCopy);}
+        if(e.target.matches(".btnPorcentaje")){makingAnOperation(flag,"%",stateCopy);}
 
         
         // comma
@@ -93,15 +92,15 @@ function standardMode(){
         // Operacions
 
 
-        if(e.target.matches(".multiply")){getBasicOperations(flag,"x",stateCopy);}
+        if(e.target.matches(".multiply")){makingAnOperation(flag,"x",stateCopy);}
 
 
-        if(e.target.matches(".dividir")){getBasicOperations(flag,"÷",stateCopy);}
+        if(e.target.matches(".dividir")){makingAnOperation(flag,"÷",stateCopy);}
 
         
-        if(e.target.matches(".sum")){getBasicOperations(flag,"+",stateCopy);}
+        if(e.target.matches(".sum")){makingAnOperation(flag,"+",stateCopy);}
 
-        if(e.target.matches(".subtract")){getBasicOperations(flag,"-",stateCopy);}
+        if(e.target.matches(".subtract")){makingAnOperation(flag,"-",stateCopy);}
 
         //fracciones
         if(e.target.matches(".fraction")){fraction(stateCopy,flag);}
