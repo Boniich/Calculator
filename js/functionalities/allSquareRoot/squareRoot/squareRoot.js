@@ -7,7 +7,7 @@ const squareRoot = (stateCopy,flag) =>{
     let result = stateCopy.result;  
 
     let expression = /(√\([0-9 | .]+\).)/g;
-    let expression2 = /([0-9 | .]+[\+ | \- | \* | \÷])/g
+    let expression2 = /([0-9 | .]+[\+ | \- | \x | \÷])/g
 
     let exp1 = expression.test(operation);
     let exp2 = expression2.test(operation);

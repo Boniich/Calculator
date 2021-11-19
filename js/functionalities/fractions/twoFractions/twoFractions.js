@@ -17,7 +17,7 @@ const twoFractions = (stateCopy,operation) =>{
     // operations
     let sum = /(1\/\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g;
     let subtract = /(1\/\(\-?[0-9 | .]+\))\-(1\/\(\-?[0-9 | .]+\))/g;
-    let multiply = /(1\/\(\-?[0-9 | .]+\))\*(1\/\(\-?[0-9 | .]+\))/g;
+    let multiply = /(1\/\(\-?[0-9 | .]+\))\x(1\/\(\-?[0-9 | .]+\))/g;
     let division = /(1\/\(\-?[0-9 | .]+\))\÷(1\/\(\-?[0-9 | .]+\))/g;
                 
     testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);

@@ -16,7 +16,7 @@ const operations = (stateCopy,signo,value1,value2) =>{
             console.log("Este es el valor desde operationsAndResults",result);
             break;
 
-        case "*": 
+        case "x": 
             console.log("Esto es una multiplicacion");
             result = value1 * value2;
             console.log("Este es el valor desde operationsAndResults",result);

@@ -16,7 +16,7 @@ const squareRootAndNumber = (flag,stateCopy,operation) =>{
     // operations
     let sum = /(√\([0-9 | .]+\)\+$)/g
     let subtract = /(√\([0-9 | .]+\)\-$)/g
-    let multiply = /(√\([0-9 | .]+\)\*$)/g
+    let multiply = /(√\([0-9 | .]+\)\x$)/g
     let division = /(√\([0-9 | .]+\)\÷$)/g
 
     testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);

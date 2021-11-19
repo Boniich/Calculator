@@ -17,7 +17,7 @@ const fractionAndNumber = (flag,stateCopy,operation) =>{
 
     let sum = /(1\/\([0-9 | .]+\)\+)/g
     let subtract = /(1\/\([0-9 | .]+\)\-)/g
-    let multiply = /(1\/\([0-9 | .]+\)\*)/g
+    let multiply = /(1\/\([0-9 | .]+\)\x)/g
     let division = /(1\/\([0-9 | .]+\)\÷)/g
 
     testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);

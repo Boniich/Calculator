@@ -93,7 +93,7 @@ function standardMode(){
         // Operacions
 
 
-        if(e.target.matches(".multiply")){getBasicOperations(flag,"*",stateCopy);}
+        if(e.target.matches(".multiply")){getBasicOperations(flag,"x",stateCopy);}
 
 
         if(e.target.matches(".dividir")){getBasicOperations(flag,"÷",stateCopy);}

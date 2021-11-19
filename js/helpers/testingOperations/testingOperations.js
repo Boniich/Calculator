@@ -6,7 +6,7 @@ const testingOperation = (stateCopy,operation,sum,subtract,multiply,division,val
             
     if(subtract.test(operation)){operations(stateCopy,"-",value1,value2);}
 
-    if(multiply.test(operation)){operations(stateCopy,"*",value1,value2);}
+    if(multiply.test(operation)){operations(stateCopy,"x",value1,value2);}
 
     if(division.test(operation)){operations(stateCopy,"÷",value1,value2);}
 
