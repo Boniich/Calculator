@@ -1,66 +1,81 @@
-import renderOperation from "../render/renderOperation/renderOperation.js";
+import deletePoint from "../point/deletePoint/deletePoint.js";
+import fractionsOperations from "../fractions/fractionsOperations/fractionsOperations.js";
+import potencyOperations from "../allPotency/potencyOperations/potencyOperations.js";
+import squareRootOperations from "../allSquareRoot/squareRootOperations/squareRootOperations.js";
+import basicOperations from "../basiOperations/basicOperations.js";
 
-const makingAnOperation = (stateCopy,signoString) =>{
-    // determinamos que signo es y dividimos el string
+const makingAnOperation = (flag,signo,stateCopy) =>{
+
+   
     let operation = new String(stateCopy.operation);
-    let result = 0,
-    valor = stateCopy.operation.split(signoString);
-    console.log(valor);
-    console.log(valor[0]);
-    console.log(stateCopy.result);
-
-
-    // comvertimos los string a numeros
-    let valor1 = Number.parseFloat(valor[0]);
-    let valorR = Number.parseFloat(stateCopy.result);
-
-    if(valor[0] === ""){
-        valor1 = Number.parseFloat(`-${valor[1]}`);
-    }
+    let result = new String(stateCopy.result);
     
-    if(stateCopy.operation.endsWith("*")){
-        console.log("Multiplicar");
-        result = valor1 * valorR;
-        console.log(`valor 1: ${valor1} * Valor: ${valorR} = Resultado`,result);
-        stateCopy.operation = `${result}${signoString}`;
-        stateCopy.result = `${result}`;
-    }
+    // fractions
 
-    if(stateCopy.operation.endsWith("÷")){
-        console.log("Dividir");
-        if(valorR === 0) {alert("No es posible dividir por 0"); return;} 
-        result = valor1 / valorR;
-        console.log(`valor 1: ${valor1} ÷ Valor: ${valorR} = Resultado`,result);
-        stateCopy.operation = `${result}${signoString}`;
-        stateCopy.result = `${result}`;
-    }
+    let expres = /(1\/\(\-?[0-9 | .]+\)).(1\/\(\-?[0-9 | .]+\))/g;
+    let expression2 = /([0-9 | .]+.1\/\([0-9 | .]+\))/g
+    let expression3 = /(1\/\([0-9 | .]+\).$)/g
 
-    if(stateCopy.operation.endsWith("+")){
-        console.log("suman");
-        result = valor1 + valorR;
-        console.log(`valor 1: ${valor1} + Valor: ${valorR} = Resultado`,result);
-        stateCopy.operation = `${result}${signoString}`;
-        stateCopy.result = `${result}`;
-    }
     
+    let exp1 = expres.test(operation);
+    let exp2 = expression2.test(operation);
+    let exp3 = expression3.test(operation);
 
-    if(stateCopy.operation.endsWith("-")){
-        console.log("Resta");
-        result = valor1 - valorR;
-        console.log(`valor 1: ${valor1} - Valor: ${valorR} = Resultado`,result);
-        stateCopy.operation = `${result}${signoString}`;
-        stateCopy.result = `${result}`;
+
+    //potency
+
+    let expression4 = /(sqr\([0-9 | .]+\)).(sqr\([0-9 | .]+\))/g;
+    let expression5 = /([0-9 | .]+).(sqr\([0-9 | .]+\))/g
+    let expression6 = /(sqr\([0-9 | .]+\).$)/g
+    let exp4 = expression4.test(operation);
+    let exp5 = expression5.test(operation);
+    let exp6 = expression6.test(operation);
+
+
+    //Square Root
+
+    let expression7 = /(√\([0-9 | .]+\)).(√\([0-9 | .]+\))/g;
+    let expression8 = /([0-9 | .]+).(√\([0-9 | .]+\))/g
+    let expression9 = /(√\([0-9 | .]+\).$)/g
+    let exp7 = expression7.test(operation);
+    let exp8 = expression8.test(operation);
+    let exp9 = expression9.test(operation);
+
+    //porcentage 
+
+
+    if(exp1 === true ||exp2 === true || exp3 === true){
+
+        fractionsOperations(flag,stateCopy,exp1,exp2,exp3);
+
+       
+    }else if(exp4 === true || exp5 === true || exp6 === true){
+
+        potencyOperations(flag,stateCopy,operation,exp4,exp5,exp6);
+
+    }else if(exp7 === true || exp8 === true || exp9 === true){
+
+        squareRootOperations(flag,stateCopy,operation,exp7,exp8,exp9);
+
+        
+    }else if(operation.endsWith(signo)){
+        basicOperations(stateCopy,signo);
+        flag.overWrite = true;
+
+    }else if(result.endsWith(".") || result.endsWith(".0")){
+
+        deletePoint(signo,stateCopy);
+
+    }else if(operation.endsWith(")")){
+        stateCopy.operation += signo;
+
+    }else{
+        stateCopy.operation = stateCopy.result;
+        stateCopy.operation += signo;
+        flag.overWrite = true;
+        
     }
 
-    if(stateCopy.operation.endsWith("%")){
-        console.log("Porcentaje");
-        result = (valor1*valorR)/100;
-        console.log("Resultado del porcentaje es: ",result);
-        stateCopy.operation = `${result}${signoString}`;
-        stateCopy.result = `${result}`;
-    }
-
-    renderOperation(stateCopy);
 
 }
 
