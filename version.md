@@ -56,6 +56,11 @@
 - If you have the expression `3 + sqr(3)` and press again `x^` it add a new `sqr(x)` instance of remplace the denominator of last `sqr(x)`
 - If you have the expression `sqr(x) + sqr(x)` and press again `x^` it add a new `sqr(x)` at operation instance of remplace the denominator of last `sqr(x)`
 
+- If you have the expression `3 + √(3)` and press again `x^` it add a new `√(x)` instance of remplace the denominator of last `√(x)`
+- If you have the expression `√(x) + √(x)` and press again `x^` it add a new `√(x)` at operation instance of remplace the denominator of last `√(x)`
+
+- For now it not enabled do porcentage operations with fractions, potency and squareRoot.
+
 
 
 ---------------------------------
