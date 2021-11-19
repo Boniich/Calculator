@@ -7,32 +7,34 @@ const operations = (stateCopy,signo,value1,value2) =>{
         case "+": 
             console.log("Esto es una suma");
             result = value1 + value2;
-            console.log("Este es el valor desde operationsAndResults",result);
             break;
 
         case "-": 
             console.log("Esto es una resta");
             result = value1 - value2;
-            console.log("Este es el valor desde operationsAndResults",result);
             break;
 
         case "x": 
             console.log("Esto es una multiplicacion");
             result = value1 * value2;
-            console.log("Este es el valor desde operationsAndResults",result);
             break;
 
         case "÷": 
             console.log("Esto es una division");
+            
+            if(value2 === 0){
+            alert("no es posible dividir por 0"); 
+            stateCopy.operation = "";
+            stateCopy.result = "0";
+            return};
             result = value1 / value2;
-            console.log("Este es el valor desde operationsAndResults",result);
+            
             break;    
-    
         default:
             break;
     }
 
-
+    console.log("result",result);
     stateCopy.operation = `${result}${signo}`;
     stateCopy.result = `${result}`;
 
