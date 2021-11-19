@@ -1,165 +1,161 @@
-body{
-    background-color:#999999;
-}
-.box{
-    background-color: white;
-    width: 280px;
-    margin: 300px auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px 13px;
+body {
+  background-image: url("../img/fondo2.png");
+  overflow-y: hidden;
 }
 
-.result-operation{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    height: 100px;
-    padding: 5px 0;
-
+.box {
+  background-color: white;
+  width: 17.5rem;
+  margin: 300px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px 5px;
 }
 
-.box-operation, .box-result{
-    display: flex;
-    justify-content: flex-end;
+.result-operation {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  height: 115px;
+  padding: 5px 0;
 }
 
-
-
-.btns{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-areas: "porcentaje ce c nada"
-                          "fracciones potencia raiz dividir"
-                          "btn7 btn8 btn9 multiply"
-                          "btn4 btn5 btn6 subtract"
-                          "btn1 btn2 btn3 sum"
-                          "neg cero coma igual";
-                          
+.box-result {
+  font-size: 20px;
 }
 
-
-.btn{
-    width: 70px;
-    height: 30px;
-    border-width: 1px;
-    border-color: #ccc;
-    padding: 2px 2px;
-   
+.box-operation, .box-result {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
 }
 
-.btn:hover{
-    background-color: tomato;
+.btns {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-areas: "porcentaje ce c nada" "fracciones potencia raiz dividir" "btn7 btn8 btn9 multiply" "btn4 btn5 btn6 subtract" "btn1 btn2 btn3 sum" "neg cero coma igual";
 }
 
-
-.btn-num-color{
-    background-color: #fff;
+.btn {
+  width: 70px;
+  height: 40px;
+  border-width: 1px;
+  border-color: #f2f2f2;
+  padding: 3px 3px;
+  font-size: 14px;
 }
 
-.btn-others-color{
-    background-color: #f2f2f2;
+.btn:hover {
+  background-color: #fa9c40;
 }
 
-.btn-igual-color{
-    background-color: #85a3e0;
+.btn-num-color {
+  background-color: #fff;
+  font-weight: bold;
 }
 
-.btnPorcentaje{
-    grid-area: porcentaje;
-
-} 
- .btnCE{
-    grid-area: ce;
-} 
- .btnC{
-    grid-area: c;
-} 
-
-.btn9{
-    grid-area: btn9;
-} 
-
-.btn8{
-    grid-area: btn8;
+.btn-others-color {
+  background: #d9d9d971;
 }
 
-.btn7{
-    grid-area: btn7;
+.btn-igual-color {
+  background-color: #3375b3;
 }
 
-.dividir{
-    grid-area: dividir;
+.btnPorcentaje {
+  grid-area: porcentaje;
 }
 
-.btn4{
-    grid-area: btn4;
-} 
-
-.btn5{
-    grid-area: btn5;
+.btnCE {
+  grid-area: ce;
 }
 
-.btn6{
-    grid-area: btn6;
+.btnC {
+  grid-area: c;
 }
 
-.multply{
-    grid-area: multiply;
+.btn9 {
+  grid-area: btn9;
 }
 
-.btn1{
-    grid-area: btn1;
-} 
-
-.btn2{
-    grid-area: btn2;
+.btn8 {
+  grid-area: btn8;
 }
 
-.btn3{
-    grid-area: btn3;
+.btn7 {
+  grid-area: btn7;
 }
 
-.subtract{
-    grid-area: subtract;
+.dividir {
+  grid-area: dividir;
 }
 
-.sum{
-    grid-area: sum;
+.btn4 {
+  grid-area: btn4;
 }
 
-.signoNegativo{
-    grid-area: neg;
+.btn5 {
+  grid-area: btn5;
 }
 
-.btn0{
-    grid-area: cero;
+.btn6 {
+  grid-area: btn6;
 }
 
-.btnComa{
-    grid-area: coma;
+.multply {
+  grid-area: multiply;
 }
 
-.igual{
-    grid-area: igual;
+.btn1 {
+  grid-area: btn1;
 }
 
-.fracciones{
-    grid-area: fracciones;
+.btn2 {
+  grid-area: btn2;
 }
 
-.potencia{
-    grid-area: potencia;
+.btn3 {
+  grid-area: btn3;
 }
 
-.raiz{
-    grid-area: raiz;
+.subtract {
+  grid-area: subtract;
 }
 
-.nada{
-    grid-area: nada;
+.sum {
+  grid-area: sum;
 }
 
+.signoNegativo {
+  grid-area: neg;
+}
 
+.btn0 {
+  grid-area: cero;
+}
 
+.btnComa {
+  grid-area: coma;
+}
+
+.igual {
+  grid-area: igual;
+}
+
+.fracciones {
+  grid-area: fracciones;
+}
+
+.potencia {
+  grid-area: potencia;
+}
+
+.raiz {
+  grid-area: raiz;
+}
+
+.nada {
+  grid-area: nada;
+}
+
+/*# sourceMappingURL=style.css.map */

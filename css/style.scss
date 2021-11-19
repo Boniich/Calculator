@@ -1,0 +1,177 @@
+body{
+    // background-color:#999999;
+    background-image: url("../img/fondo2.png");
+    overflow-y: hidden;
+
+}
+.box{
+    background-color: white;
+    width: 17.5rem;
+    margin: 300px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px 5px;
+}
+
+.result-operation{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    height: 115px;
+    padding: 5px 0;
+
+}
+
+.box-result{
+    font-size: 20px;
+}
+
+.box-operation, .box-result{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+
+
+.btns{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: "porcentaje ce c nada"
+                          "fracciones potencia raiz dividir"
+                          "btn7 btn8 btn9 multiply"
+                          "btn4 btn5 btn6 subtract"
+                          "btn1 btn2 btn3 sum"
+                          "neg cero coma igual";
+                          
+}
+
+
+.btn{
+    width: 70px;
+    height: 40px;
+    border-width: 1px;
+    border-color: #f2f2f2;
+    padding: 3px 3px;
+    font-size: 14px;
+   
+}
+
+.btn:hover{
+    background-color: #fa9c40;
+}
+
+
+.btn-num-color{
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.btn-others-color{
+    // background-color: #f2f2f2;
+    background: #d9d9d971;
+}
+
+.btn-igual-color{
+    background-color:#3375b3;
+
+}
+
+.btnPorcentaje{
+    grid-area: porcentaje;
+
+} 
+ .btnCE{
+    grid-area: ce;
+} 
+ .btnC{
+    grid-area: c;
+} 
+
+.btn9{
+    grid-area: btn9;
+} 
+
+.btn8{
+    grid-area: btn8;
+}
+
+.btn7{
+    grid-area: btn7;
+}
+
+.dividir{
+    grid-area: dividir;
+}
+
+.btn4{
+    grid-area: btn4;
+} 
+
+.btn5{
+    grid-area: btn5;
+}
+
+.btn6{
+    grid-area: btn6;
+}
+
+.multply{
+    grid-area: multiply;
+}
+
+.btn1{
+    grid-area: btn1;
+} 
+
+.btn2{
+    grid-area: btn2;
+}
+
+.btn3{
+    grid-area: btn3;
+}
+
+.subtract{
+    grid-area: subtract;
+}
+
+.sum{
+    grid-area: sum;
+}
+
+.signoNegativo{
+    grid-area: neg;
+}
+
+.btn0{
+    grid-area: cero;
+}
+
+.btnComa{
+    grid-area: coma;
+}
+
+.igual{
+    grid-area: igual;
+}
+
+.fracciones{
+    grid-area: fracciones;
+}
+
+.potencia{
+    grid-area: potencia;
+}
+
+.raiz{
+    grid-area: raiz;
+}
+
+.nada{
+    grid-area: nada;
+}
+
+
+
