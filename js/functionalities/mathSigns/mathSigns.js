@@ -10,6 +10,10 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let point = result.endsWith(".");
     let pointAndZero = result.endsWith(".0");
 
+    let determineSign = /\)?([\+ | \x |\÷ |\% |\-])/g
+    let thisSignIs = determineSign.exec(operation);
+    console.log("array",thisSignIs);
+
 
     //fractions
 
@@ -33,6 +37,7 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let exp7 = expression7.test(operation);
     let exp8 = expression8.test(operation);
 
+    
     if(point === true || pointAndZero === true){
         console.log("boorando coma")
         deletePoint(sign,stateCopy);
@@ -47,6 +52,13 @@ const mathSigns = (flag,stateCopy,sign) =>{
 
         console.log("Agregar signo si termina en parentesis")
         stateCopy.operation += sign;
+
+    }else if(sign !== thisSignIs[1]){
+
+        console.log("Aca vamos a cambiar el signos");
+        let separateOperation = operation.split(thisSignIs[1]);
+        console.log(separateOperation);
+        stateCopy.operation = separateOperation[0] + sign;
 
     }else{
 
