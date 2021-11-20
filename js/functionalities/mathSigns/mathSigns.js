@@ -47,6 +47,10 @@ const mathSigns = (flag,stateCopy,sign) =>{
         stateCopy.operation = stateCopy.result;
         stateCopy.operation += sign;
         flag.overWrite = true;
+    }else if(sign === "%" && endParentesis === true){
+
+        stateCopy.operation = "";
+        stateCopy.result = "0";
     }else if(endParentesis === true && exp1 === false && exp2 === false && exp4 === false
         && exp5 === false && exp7 === false && exp8 === false){
 
