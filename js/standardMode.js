@@ -119,7 +119,8 @@ function standardMode(){
 
 
         if(e.target.matches(".igual")){
-            makingAnOperation(flag,stateCopy);
+            let equal = true
+            makingAnOperation(flag,stateCopy,equal);
         }
 
         // Renders

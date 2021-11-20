@@ -1,6 +1,6 @@
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const numberAndPotency = (stateCopy,operation) =>{
+const numberAndPotency = (stateCopy,operation,equal) =>{
 
     console.log("Number and Potency");
 
@@ -13,6 +13,8 @@ const numberAndPotency = (stateCopy,operation) =>{
 
     value2 = value2*value2;
 
+    let mathExpression = numbers[0];
+
 
     // operations
     let sum = /([0-9 | .]+)\+(sqr\([0-9 | .]+\))/g;
@@ -20,7 +22,7 @@ const numberAndPotency = (stateCopy,operation) =>{
     let multiply = /([0-9 | .]+)\x(sqr\([0-9 | .]+\))/g;
     let division = /([0-9 | .]+)\÷(sqr\([0-9 | .]+\))/g;
 
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);
+    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,value1,value2,equal);
 
 }
 

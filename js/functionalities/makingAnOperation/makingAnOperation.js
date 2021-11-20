@@ -4,7 +4,7 @@ import potencyOperations from "../allPotency/potencyOperations/potencyOperations
 import squareRootOperations from "../allSquareRoot/squareRootOperations/squareRootOperations.js";
 import basicOperations from "../basiOperations/basicOperations.js";
 
-const makingAnOperation = (flag,stateCopy) =>{
+const makingAnOperation = (flag,stateCopy,equal) =>{
 
    
     let operation = new String(stateCopy.operation);
@@ -44,19 +44,19 @@ const makingAnOperation = (flag,stateCopy) =>{
 
     if(exp1 === true ||exp2 === true || exp3 === true){
 
-        fractionsOperations(flag,stateCopy,exp1,exp2,exp3);
+        fractionsOperations(flag,stateCopy,exp1,exp2,exp3,equal);
 
        
     }else if(exp4 === true || exp5 === true || exp6 === true){
 
-        potencyOperations(flag,stateCopy,operation,exp4,exp5,exp6);
+        potencyOperations(flag,stateCopy,operation,exp4,exp5,exp6,equal);
 
     }else if(exp7 === true || exp8 === true || exp9 === true){
 
-        squareRootOperations(flag,stateCopy,operation,exp7,exp8,exp9);
+        squareRootOperations(flag,stateCopy,operation,exp7,exp8,exp9,equal);
 
     }else{
-        basicOperations(stateCopy);
+        basicOperations(stateCopy,equal);
         flag.overWrite = true;
 
     }

@@ -1,23 +1,21 @@
 import testingOperation from "../../helpers/testingOperations/testingOperations.js";
 
 
-const basicOperations = (stateCopy,signoString) =>{
-    // determinamos que signo es y dividimos el string
+const basicOperations = (stateCopy,equal) =>{
+    console.log("basic operations")
     let operation = new String(stateCopy.operation);
-    let result = 0,
-    extractNumbers = stateCopy.operation.split(signoString);
-    console.log(extractNumbers);
-    console.log(extractNumbers[0]);
-    console.log(stateCopy.result);
+    let result = 0;
+    let numbers = /(\-?[0-9 | .]+)./g;
+    let arrayNumbers = numbers.exec(operation);
+    console.log(arrayNumbers);
 
-
-    // comvertimos los string a numeros
-    let value1 = Number.parseFloat(extractNumbers[0]);
+    
+    let value1 = Number.parseFloat(arrayNumbers[1]);
     let value2 = Number.parseFloat(stateCopy.result);
 
-    if(extractNumbers[0] === ""){
-        value1 = Number.parseFloat(`-${extractNumbers[1]}`);
-    }
+
+    let mathExpression = arrayNumbers[0] + value2;
+    console.log(mathExpression);
 
     //operations
 
@@ -37,7 +35,7 @@ const basicOperations = (stateCopy,signoString) =>{
         stateCopy.result = `${result}`;
     }{
 
-        testingOperation(stateCopy,operation,sum,substract,multiply,division,value1,value2);
+        testingOperation(stateCopy,operation,sum,substract,multiply,division,mathExpression,value1,value2,equal);
 
     }
 

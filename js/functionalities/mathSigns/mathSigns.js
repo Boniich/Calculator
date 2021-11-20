@@ -3,6 +3,7 @@ import deletePoint from "../point/deletePoint/deletePoint.js";
 
 const mathSigns = (flag,stateCopy,sign) =>{
 
+    let equal = false;
     let operation = new String(stateCopy.operation);
     let result = new String(stateCopy.result);
     let endParentesis = operation.endsWith(")");
@@ -50,7 +51,7 @@ const mathSigns = (flag,stateCopy,sign) =>{
     }else{
 
         console.log("test desde sum")
-        makingAnOperation(flag,stateCopy);
+        makingAnOperation(flag,stateCopy,equal);
     }
 
 }

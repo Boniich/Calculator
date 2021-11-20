@@ -1,6 +1,6 @@
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const twoSquareRoot = (stateCopy,operation) =>{
+const twoSquareRoot = (stateCopy,operation,equal) =>{
 
     console.log("Two squareRoot")
 
@@ -8,6 +8,7 @@ const twoSquareRoot = (stateCopy,operation) =>{
     let numbers = extractNumbers.exec(operation);
     console.log(numbers);
 
+    let mathExpression = numbers[0];
     let value1 = Number.parseFloat(numbers[1]);
     let value2 = Number.parseFloat(numbers[2]);
 
@@ -21,7 +22,7 @@ const twoSquareRoot = (stateCopy,operation) =>{
     let multiply = /(√\([0-9 | .]+\))\x(√\([0-9 | .]+\))/g;
     let division = /(√\([0-9 | .]+\))\÷(√\([0-9 | .]+\))/g;
 
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);
+    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,value1,value2,equal);
 
 }
 

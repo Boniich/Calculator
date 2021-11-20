@@ -1,6 +1,6 @@
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const twoFractions = (stateCopy,operation) =>{
+const twoFractions = (stateCopy,operation,equal) =>{
 
     console.log("Two Fractions");
 
@@ -13,6 +13,8 @@ const twoFractions = (stateCopy,operation) =>{
         
     value1 = 1/value1;
     value2 = 1/value2;
+
+    let mathExpression = numbers[0];
         
     // operations
     let sum = /(1\/\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g;
@@ -20,7 +22,7 @@ const twoFractions = (stateCopy,operation) =>{
     let multiply = /(1\/\(\-?[0-9 | .]+\))\x(1\/\(\-?[0-9 | .]+\))/g;
     let division = /(1\/\(\-?[0-9 | .]+\))\÷(1\/\(\-?[0-9 | .]+\))/g;
                 
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,value1,value2);
+    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,value1,value2,equal);
 }
 
 export default twoFractions;

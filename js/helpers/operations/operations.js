@@ -1,4 +1,4 @@
-const operations = (stateCopy,signo,value1,value2) =>{
+const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
 
     let result = 0;
 
@@ -34,9 +34,24 @@ const operations = (stateCopy,signo,value1,value2) =>{
             break;
     }
 
-    console.log("result",result);
-    stateCopy.operation = `${result}${signo}`;
-    stateCopy.result = `${result}`;
+    switch(equal){
+
+        case false:
+        console.log("result",result);
+        stateCopy.operation = `${result}${signo}`;
+        stateCopy.result = `${result}`;
+        break;
+
+        case true:
+        console.log("result",result);
+        stateCopy.operation = `${mathExpression}=`;
+        stateCopy.result = `${result}`;
+        break;
+
+
+    }
+
+
 
 }
 
