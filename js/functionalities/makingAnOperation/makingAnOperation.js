@@ -4,11 +4,10 @@ import potencyOperations from "../allPotency/potencyOperations/potencyOperations
 import squareRootOperations from "../allSquareRoot/squareRootOperations/squareRootOperations.js";
 import basicOperations from "../basiOperations/basicOperations.js";
 
-const makingAnOperation = (flag,signo,stateCopy) =>{
+const makingAnOperation = (flag,stateCopy) =>{
 
    
     let operation = new String(stateCopy.operation);
-    let result = new String(stateCopy.result);
     
     // fractions
 
@@ -41,7 +40,6 @@ const makingAnOperation = (flag,signo,stateCopy) =>{
     let exp8 = expression8.test(operation);
     let exp9 = expression9.test(operation);
 
-    //porcentage 
 
 
     if(exp1 === true ||exp2 === true || exp3 === true){
@@ -57,25 +55,11 @@ const makingAnOperation = (flag,signo,stateCopy) =>{
 
         squareRootOperations(flag,stateCopy,operation,exp7,exp8,exp9);
 
-        
-    }else if(operation.endsWith(signo)){
-        basicOperations(stateCopy,signo);
-        flag.overWrite = true;
-
-    }else if(result.endsWith(".") || result.endsWith(".0")){
-
-        deletePoint(signo,stateCopy);
-
-    }else if(operation.endsWith(")")){
-        stateCopy.operation += signo;
-
     }else{
-        stateCopy.operation = stateCopy.result;
-        stateCopy.operation += signo;
+        basicOperations(stateCopy);
         flag.overWrite = true;
-        
-    }
 
+    }
 
 }
 
