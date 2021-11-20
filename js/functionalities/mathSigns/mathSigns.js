@@ -10,7 +10,7 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let point = result.endsWith(".");
     let pointAndZero = result.endsWith(".0");
 
-    let determineSign = /\)?([\+ | \x |\÷ |\% |\-])/g
+    let determineSign = /\)?([\+ | \x |\÷ |\% |\-]$)/g
     let thisSignIs = determineSign.exec(operation);
     console.log("array",thisSignIs);
 
