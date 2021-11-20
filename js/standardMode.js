@@ -7,6 +7,8 @@ import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
 import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
 import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
+import deletePoint from "./functionalities/point/deletePoint/deletePoint.js";
+import mathSigns from "./functionalities/mathSigns/mathSigns.js";
 
 const state = {
     operation: "",
@@ -78,7 +80,7 @@ function standardMode(){
 
         //percentage
 
-        if(e.target.matches(".btnPorcentaje")){makingAnOperation(flag,"%",stateCopy);}
+        if(e.target.matches(".btnPorcentaje")){mathSigns(flag,stateCopy,"%")};
 
         
         // comma
@@ -92,15 +94,17 @@ function standardMode(){
         // Operacions
 
 
-        if(e.target.matches(".multiply")){makingAnOperation(flag,"x",stateCopy);}
+        if(e.target.matches(".multiply")){mathSigns(flag,stateCopy,"x")};
 
 
-        if(e.target.matches(".dividir")){makingAnOperation(flag,"÷",stateCopy);}
+        if(e.target.matches(".dividir")){mathSigns(flag,stateCopy,"÷")};
 
         
-        if(e.target.matches(".sum")){makingAnOperation(flag,"+",stateCopy);}
+    
+        if(e.target.matches(".subtract")){mathSigns(flag,stateCopy,"-")};
 
-        if(e.target.matches(".subtract")){makingAnOperation(flag,"-",stateCopy);}
+
+        if(e.target.matches(".sum")){mathSigns(flag,stateCopy,"+")};
 
         //fracciones
         if(e.target.matches(".fraction")){fraction(stateCopy,flag);}
@@ -115,9 +119,7 @@ function standardMode(){
 
 
         if(e.target.matches(".igual")){
-            let signo = stateCopy.operation.substr(2);
-            console.log(`${signo}`);
-            makingAnOperation(stateCopy,signo);
+            makingAnOperation(flag,stateCopy);
         }
 
         // Renders
