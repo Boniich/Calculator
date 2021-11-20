@@ -7,8 +7,8 @@ import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
 import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
 import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
-import deletePoint from "./functionalities/point/deletePoint/deletePoint.js";
 import mathSigns from "./functionalities/mathSigns/mathSigns.js";
+import negSign from "./negSign/negSign.js";
 
 const state = {
     operation: "",
@@ -59,24 +59,7 @@ function standardMode(){
         if(e.target.matches(".btn0")){getNumbers(flag,"0",stateCopy);}
 
         //negative sing
-        if(e.target.matches(".signoNegativo")){
-            
-            let result = new String(stateCopy.result);
-            
-            let expression = /\-[0-9]+/
-
-            if(!expression.test(stateCopy.result)){
-                console.log("agregando signo menos");
-                stateCopy.result = "-" + stateCopy.result;
-            }else{
-
-                let resultFragments = result.split("-");
-                stateCopy.result = "0";
-                stateCopy.result = resultFragments[1];
-
-            }
-        
-        }
+        if(e.target.matches(".signoNegativo")){negSign(stateCopy);}
 
         //percentage
 
@@ -118,10 +101,7 @@ function standardMode(){
         if(e.target.matches(".squareRoot")){squareRoot(stateCopy,flag);};
 
 
-        if(e.target.matches(".igual")){
-            let equal = true
-            makingAnOperation(flag,stateCopy,equal);
-        }
+        if(e.target.matches(".igual")){let equal = true; makingAnOperation(flag,stateCopy,equal);}
 
         // Renders
 
