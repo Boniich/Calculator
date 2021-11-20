@@ -6,9 +6,9 @@ import resets from "./functionalities/resets/resets.js";
 import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
 import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
-import makingAnOperation from "./functionalities/makingAnOperation/makingAnOperation.js";
 import mathSigns from "./functionalities/mathSigns/mathSigns.js";
 import negSign from "./negSign/negSign.js";
+import equal from "./functionalities/equal/equal.js";
 
 const state = {
     operation: "",
@@ -101,7 +101,7 @@ function standardMode(){
         if(e.target.matches(".squareRoot")){squareRoot(stateCopy,flag);};
 
 
-        if(e.target.matches(".igual")){let equal = true; makingAnOperation(flag,stateCopy,equal);}
+        if(e.target.matches(".igual")){equal(flag,stateCopy);}
 
         // Renders
 
