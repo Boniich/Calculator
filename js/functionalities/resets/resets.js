@@ -1,10 +1,8 @@
 
 const resets = (e,stateCopy) =>{
 
-    const flagComma = document.querySelector(".btnComa").disabled = false;
-
     stateCopy.result = "0";
-    flagComma;
+    document.querySelector(".btnComa").disabled = false;
     if(e.target.matches(".btnC")){stateCopy.operation = ""};
 
 }
