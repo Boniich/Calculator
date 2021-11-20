@@ -9,8 +9,8 @@ const squareRootAndNumber = (flag,stateCopy,operation,equal) =>{
     console.log(numbers);
 
     
-    let value1 = Number.parseFloat(stateCopy.result);
-    let value2 = Number.parseFloat(numbers[1]);
+    let value1 = Number.parseFloat(numbers[1]);
+    let value2 = Number.parseFloat(stateCopy.result);
 
     let mathExpression = numbers[0] + value1;
     console.log(mathExpression);

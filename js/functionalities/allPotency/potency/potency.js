@@ -5,7 +5,7 @@ const potency = (stateCopy,flag) =>{
     let operation = new String(stateCopy.operation);
     let result = stateCopy.result;  
 
-    let expression = /(sqr\([0-9 | .]+\).)/g;
+    let expression = /(sqr\(\-?[0-9 | .]+\))./g;
     let expression2 = /([0-9 | .]+[\+ | \- | \x | \÷])/g
 
     let exp1 = expression.test(operation);

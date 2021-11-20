@@ -12,8 +12,8 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
     // fractions
 
     let expres = /(1\/\(\-?[0-9 | .]+\)).(1\/\(\-?[0-9 | .]+\))/g;
-    let expression2 = /([0-9 | .]+.1\/\([0-9 | .]+\))/g
-    let expression3 = /(1\/\([0-9 | .]+\).$)/g
+    let expression2 = /(\-?[0-9 | .]+.1\/\(\-?[0-9 | .]+\))/g
+    let expression3 = /(1\/\(\-?[0-9 | .]+\).$)/g
 
     
     let exp1 = expres.test(operation);
@@ -23,9 +23,9 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
 
     //potency
 
-    let expression4 = /(sqr\([0-9 | .]+\)).(sqr\([0-9 | .]+\))/g;
-    let expression5 = /([0-9 | .]+).(sqr\([0-9 | .]+\))/g
-    let expression6 = /(sqr\([0-9 | .]+\).$)/g
+    let expression4 = /(sqr\(\-?[0-9 | .]+\)).(sqr\(\-?[0-9 | .]+\))/g;
+    let expression5 = /(\-?[0-9 | .]+).(sqr\(\-?[0-9 | .]+\))/g
+    let expression6 = /(sqr\(\-?[0-9 | .]+\).$)/g
     let exp4 = expression4.test(operation);
     let exp5 = expression5.test(operation);
     let exp6 = expression6.test(operation);
@@ -34,7 +34,7 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
     //Square Root
 
     let expression7 = /(√\([0-9 | .]+\)).(√\([0-9 | .]+\))/g;
-    let expression8 = /([0-9 | .]+).(√\([0-9 | .]+\))/g
+    let expression8 = /(\-?[0-9 | .]+).(√\([0-9 | .]+\))/g
     let expression9 = /(√\([0-9 | .]+\).$)/g
     let exp7 = expression7.test(operation);
     let exp8 = expression8.test(operation);
