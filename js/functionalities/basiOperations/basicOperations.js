@@ -33,7 +33,7 @@ const basicOperations = (stateCopy,signoString) =>{
         console.log("Porcentaje");
         result = (value1*value2)/100;
         console.log("Resultado del porcentaje es: ",result);
-        stateCopy.operation = `${result}${signoString}`;
+        stateCopy.operation = `${result}%`;
         stateCopy.result = `${result}`;
     }{
 
