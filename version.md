@@ -7,6 +7,9 @@
 
 ## New Features
 
+### Negative sign
+- Button `+/-`: Add and quit the sign `-`.
+
 
 ### Fractions
 - Added buttons of `1/x`.
@@ -47,15 +50,14 @@
 
 
 ## Problems Fixed
-- Button `+/-`: Add and quit the sign `-` without give an `undefined`.
 - Basic Operations with negative numbers should be work fine now.
+- Now change the sign without problem
 
 
 ## Current Problems
 
 
 - The point is repeting more than 1 time
-- When change the sing if the `result` is different to the `operation` it overwrite the value of `operation` with `result` 
 
 - If you have the expression `3+1/(3)` and press again `1/x` it add a new `1/(x)` instance of remplace the denominator of orignal `1/(x)`
 - If you have the expression `1/(3)+1/(3)` and press again `1/x` it add a new `1/(x)` at operation instance of remplace the denominator of last `1/(x)`
