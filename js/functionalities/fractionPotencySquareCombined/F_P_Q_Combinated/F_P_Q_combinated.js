@@ -1,11 +1,11 @@
 import fractionPotency from "../fractionPotency/fractionPotency.js";
-import fractionSquareRoot from "../fraction_squareRoot/fractionSquareRoot.js";
+import fractionSquareRoot from "../fractionSquareRoot/fractionSquareRoot.js";
 import potencyFraction from "../potencyFraction/potencyFraction.js";
 import potencySquareRoot from "../potencySquareRoot/potencySquareRoot.js";
 import squareRootPotency from "../squareRootPotency/squareRootPotency.js";
-import squareRootFraction from "../squareRoot_fraction/squareRootFraction.js";
+import squareRootFraction from "../squareRootFraction/squareRootFraction.js";
 
-const F_P_Q_Combinated = (flag,stateCopy,fract_potency,potency_fraction,
+const F_P_Q_Combinated = (stateCopy,fract_potency,potency_fraction,
     fraction_squareRoot,squareRoot_fraction,squareRoot_potency,potency_squareRoot,equal) =>{
 
     let operation = new String(stateCopy.operation,equal);
