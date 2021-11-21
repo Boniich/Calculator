@@ -21,6 +21,7 @@
 - Now is possble an operation is as a expression like `1/(3) + 4`
 - is possible make negative operation with fractions - still need be teste a lot-
 - It is possible do Negative account with fractions.   
+- It is possible do operation like `1/(2) + sqr(3)`, `1/(2) + √(3)`
 
 ### Potency
 
@@ -31,6 +32,7 @@
 - Now it is possible add expression like: `sqr(3) + sqr(3)`, `sqr(3) + 3` and `3 + sqr(3)`
 - Now it is possible add operations like `sqr(3) + sqr(3)`, `sqr(3) + ` and `3 + sqr(3)`
 - It is possible do Negative account with potency.  
+- It is possible do operation like `√(3) + sqr(3)`, `sqr(3) + √(3)`
 
 ### Raiz
 
@@ -41,6 +43,7 @@
 - Now it is possible add expression like: `√(3) + √(3)`, `√(3) + 3` and `3 + √(3)`
 - Now it is possible add operations like `√(3) + √(3)`, `√(3) + ` and `3 + √(3)`
 - It is possible do Negative account with quareRoot.  
+- It is possible do operation like `√(3) + sqr(3)`, `sqr(3) + √(3)`
 
 ## Test
 
