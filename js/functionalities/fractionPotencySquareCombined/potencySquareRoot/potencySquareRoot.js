@@ -1,4 +1,5 @@
-import testingOperation from "../../helpers/testingOperations/testingOperations.js";
+import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
+
 
 const potencySquareRoot = (stateCopy,operation,equal) =>{
 

@@ -1,4 +1,4 @@
-import testingOperation from "../../helpers/testingOperations/testingOperations.js";
+import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
 const fractionSquareRoot = (stateCopy,operation,equal) =>{
 

@@ -2,7 +2,7 @@ import fractionsOperations from "../fractions/fractionsOperations/fractionsOpera
 import potencyOperations from "../allPotency/potencyOperations/potencyOperations.js";
 import squareRootOperations from "../allSquareRoot/squareRootOperations/squareRootOperations.js";
 import basicOperations from "../basiOperations/basicOperations.js";
-import F_P_Q_Combinated from "../../fraction_potency_squareRoot_combinated/F_P_Q_Combinated/F_P_S_combinated.js";
+import F_P_Q_Combinated from "../fractionPotencySquareCombined/F_P_Q_Combinated/F_P_Q_combinated.js";
 
 
 const makingAnOperation = (flag,stateCopy,equal) =>{
@@ -60,7 +60,6 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
 
 
 
-
     if(exp1 === true ||exp2 === true || exp3 === true){
 
         fractionsOperations(flag,stateCopy,exp1,exp2,exp3,equal);
@@ -79,7 +78,7 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
         || testSquareRoot_potency === true || testPotency_squareRoot === true){
         console.log("If de operaciones combinadas");
 
-        F_P_Q_Combinated(flag,stateCopy,testFraction_potency,testPotency_fraction,
+        F_P_Q_Combinated(stateCopy,testFraction_potency,testPotency_fraction,
             testFraction_squareRoot,testSquareRoot_fraction,
             testSquareRoot_potency,testPotency_squareRoot,equal);
         

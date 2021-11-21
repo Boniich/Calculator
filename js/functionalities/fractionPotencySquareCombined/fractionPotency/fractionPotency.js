@@ -1,4 +1,4 @@
-import testingOperation from "../../helpers/testingOperations/testingOperations.js";
+import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
 const fractionPotency = (stateCopy,operation,equal) =>{
 
