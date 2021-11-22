@@ -11,14 +11,14 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let point = result.endsWith(".");
     let pointAndZero = result.endsWith(".0");
 
-    // let determineSign = /([\+ | \x |\÷ |\% |\= |\-])$/g
-    // let thisSignIs = determineSign.exec(operation);
-    // console.log("array",thisSignIs);
-    //no borrar
+    let determineSign = /([\+ | \x |\÷ |\% |\= |\-]$)/g
+    let thisSignIs = determineSign.exec(operation);
+    console.log("array",thisSignIs);
+ 
 
 
     if(point === true || pointAndZero === true){
-        console.log("boorando coma")
+        console.log("borrando coma")
         deletePoint(sign,stateCopy);
 
     }else if(stateCopy.operation === ""){
@@ -38,20 +38,20 @@ const mathSigns = (flag,stateCopy,sign) =>{
         console.log("add sign if end with ')'")
         stateCopy.operation += sign;
 
+    }else if(sign !== thisSignIs[1]){
+
+        console.log("Aca vamos a cambiar el signos");
+        let separateOperation = operation.split(thisSignIs[1]);
+        console.log(separateOperation);
+        stateCopy.operation = separateOperation[0] + sign;
+
     }else{
 
         makingAnOperation(flag,stateCopy,equal);
     }
 
     //doesnt work
-    // else if(sign !== thisSignIs[1]){
 
-    //     console.log("Aca vamos a cambiar el signos");
-    //     let separateOperation = operation.split(thisSignIs[1]);
-    //     console.log(separateOperation);
-    //     stateCopy.operation = separateOperation[0] + sign;
-
-    // }
 
 }
 
