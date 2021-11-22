@@ -57,7 +57,7 @@ The version in the top of this file is the last version.
 
 ## Current Problems
 
--  the change the sign cause an issue if you use negative numbers
+-  the change the sign is disabled for now because it cause a few issue.
 - If the is a very long number it will out of screen. 
 
 - Delete buttons dont have functionality yet
