@@ -1,8 +1,8 @@
 
+The version in the top of this file is the last version.
 
 
-
-# Version 1.5.2
+# Version 1.27.3
 
 
 ## New Features
@@ -49,18 +49,15 @@
 
 - Added unit tests
 
-## Features in process
-
 
 ## Problems Fixed
 - Basic Operations with negative numbers should be work fine now.
-- Now change the sign without problem
+- The point is repeting more than 1 time
 
 
 ## Current Problems
 
-
-- The point is repeting more than 1 time
+-  the change the sign cause an issue if you use negative numbers
 
 - If you have the expression `3+1/(3)` and press again `1/x` it add a new `1/(x)` instance of remplace the denominator of orignal `1/(x)`
 - If you have the expression `1/(3)+1/(3)` and press again `1/x` it add a new `1/(x)` at operation instance of remplace the denominator of last `1/(x)`
