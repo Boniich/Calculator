@@ -60,6 +60,10 @@ The version in the top of this file is the last version.
 -  the change the sign cause an issue if you use negative numbers
 - If the is a very long number it will out of screen. 
 
+- Delete buttons dont have functionality yet
+
+- Equal button can dont show all operation in some case like fractions
+
 - If you have the expression `3+1/(3)` and press again `1/x` it add a new `1/(x)` instance of remplace the denominator of orignal `1/(x)`
 - If you have the expression `1/(3)+1/(3)` and press again `1/x` it add a new `1/(x)` at operation instance of remplace the denominator of last `1/(x)`
 
