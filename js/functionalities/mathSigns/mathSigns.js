@@ -12,6 +12,16 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let pointAndZero = result.endsWith(".0");
 
 
+    
+    //doesnt work
+    let determineSign = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\% |\= |\-])/g;
+    let thisSignIs = determineSign.exec(operation);
+    console.log("array",thisSignIs);
+
+
+
+
+
 
 
     if(point === true || pointAndZero === true){
@@ -35,24 +45,18 @@ const mathSigns = (flag,stateCopy,sign) =>{
         console.log("add sign if end with ')'")
         stateCopy.operation += sign;
 
+    }else if(sign !== thisSignIs[2]){
+
+        console.log("Aca vamos a cambiar el signos");
+        stateCopy.operation = thisSignIs[1] + sign;
+
     }else{
 
         makingAnOperation(flag,stateCopy,equal);
     }
 
-    //doesnt work
-    // let determineSign = /([\+ | \x |\÷ |\% |\= |\-])/g
-    // let thisSignIs = determineSign.exec(operation);
-    // console.log("array",thisSignIs);
  
-    // else if(sign !== thisSignIs[1]){
 
-    //     console.log("Aca vamos a cambiar el signos");
-    //     let separateOperation = operation.split(thisSignIs[1]);
-    //     console.log(separateOperation);
-    //     stateCopy.operation = separateOperation[0] + sign;
-
-    // }
 
 
 }
