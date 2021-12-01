@@ -11,17 +11,9 @@ const mathSigns = (flag,stateCopy,sign) =>{
     let point = result.endsWith(".");
     let pointAndZero = result.endsWith(".0");
 
-
-    
-    //doesnt work
     let determineSign = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\% |\= |\-])/g;
     let thisSignIs = determineSign.exec(operation);
     console.log("array",thisSignIs);
-
-
-
-
-
 
 
     if(point === true || pointAndZero === true){
