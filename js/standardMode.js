@@ -7,16 +7,14 @@ import fraction from "./functionalities/fractions/fraction/fraction.js";
 import potency from "./functionalities/allPotency/potency/potency.js";
 import squareRoot from "./functionalities/allSquareRoot/squareRoot/squareRoot.js";
 import mathSigns from "./functionalities/mathSigns/mathSigns.js";
-import negSign from "./negSign/negSign.js";
+import negSign from "./helpers/negSign/negSign.js";
 import equal from "./functionalities/equal/equal.js";
+import recoil from "./helpers/recoil/recoil.js";
 
 const state = {
     operation: "",
     result: "0",
 }
-
-
-// obtenemos una copia del estado
 
 const getState = () => JSON.parse(JSON.stringify(state));
 const stateCopy = getState();
@@ -89,10 +87,10 @@ function standardMode(){
 
         if(e.target.matches(".sum")){mathSigns(flag,stateCopy,"+")};
 
-        //fracciones
+        //fractions
         if(e.target.matches(".fraction")){fraction(stateCopy,flag);}
 
-        // potencia
+        // potency
 
         if(e.target.matches(".potency")){potency(stateCopy,flag);}
 
@@ -103,16 +101,19 @@ function standardMode(){
 
         if(e.target.matches(".igual")){equal(flag,stateCopy);}
 
+
+        if(e.target.matches(".recoil")){recoil(stateCopy)};
+
         // Renders
 
-        renderResult(state,stateCopy);
+        renderResult(stateCopy);
         renderOperation(stateCopy);
     })
   
 
 }
 
-document.addEventListener("DOMContentLoaded", renderResult(state,stateCopy));
+document.addEventListener("DOMContentLoaded", renderResult(stateCopy));
 
 
 
