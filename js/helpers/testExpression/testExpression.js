@@ -56,6 +56,12 @@ const testExpression = (stateCopy,typeOperation) =>{
         case "numSign":
             expression = /([0-9 | .]+[\+ | \x | \÷ |\-])/g
             break;
+        case "testEqual": 
+            expression = /([0-9]+)([\+ | \x |\÷ |\% |\-])([0-9]+)(\=)/g; 
+            break;
+        case "testSpecial":
+            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\-])(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)/g;
+            break;
         
         default:
 
