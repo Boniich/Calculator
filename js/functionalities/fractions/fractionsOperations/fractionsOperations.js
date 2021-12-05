@@ -7,7 +7,7 @@ import twoFractions from "../twoFractions/twoFractions.js";
 
         let operation = new String(stateCopy.operation,equal);
 
-        if(testExpression(stateCopy,"2f") === true){twoFractions(stateCopy,operation,equal);}
+        if(testExpression(stateCopy,"2f")){twoFractions(stateCopy,operation,equal);}
 
         if(testExpression(stateCopy,"nf")){numberAndFraction(stateCopy,operation,equal);}
 
