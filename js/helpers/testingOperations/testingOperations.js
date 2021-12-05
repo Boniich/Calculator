@@ -1,14 +1,15 @@
 import operations from "../operations/operations.js";
+import testExpression from "../testExpression/testExpression.js";
 
-const testingOperation = (stateCopy,operation,sum,subtract,multiply,division,mathExpression,value1,value2,equal) =>{
+const testingOperation = (stateCopy,mathExpression,value1,value2,equal) =>{
 
-    if(sum.test(operation)){operations(stateCopy,"+",mathExpression,value1,value2,equal);}
+    if(testExpression(stateCopy,"sum")){operations(stateCopy,"+",mathExpression,value1,value2,equal);}
             
-    if(subtract.test(operation)){operations(stateCopy,"-",mathExpression,value1,value2,equal);}
+    if(testExpression(stateCopy,"substract")){operations(stateCopy,"-",mathExpression,value1,value2,equal);}
 
-    if(multiply.test(operation)){operations(stateCopy,"x",mathExpression,value1,value2,equal);}
+    if(testExpression(stateCopy,"multiply")){operations(stateCopy,"x",mathExpression,value1,value2,equal);}
 
-    if(division.test(operation)){operations(stateCopy,"÷",mathExpression,value1,value2,equal);}
+    if(testExpression(stateCopy,"division")){operations(stateCopy,"÷",mathExpression,value1,value2,equal);}
 
 }
 
