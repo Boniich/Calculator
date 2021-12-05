@@ -47,12 +47,8 @@ const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
         stateCopy.operation = `${mathExpression}=`;
         stateCopy.result = `${result}`;
         break;
-
-
     }
-
-
-
+    
 }
 
 export default operations;
