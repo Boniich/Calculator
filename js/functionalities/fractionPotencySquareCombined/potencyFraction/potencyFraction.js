@@ -18,13 +18,8 @@ const potencyFraction = (stateCopy,operation,equal) =>{
 
     console.log(fraction);
     console.log(potency);
-    
-    let sum = /(sqr\(\-?[0-9 | .]+\))\+(1\/\(\-?[0-9 | .]+\))/g
-    let subtract = /(sqr\(\-?[0-9 | .]+\))\-(1\/\(\-?[0-9 | .]+\))/g
-    let multiply = /(sqr\(\-?[0-9 | .]+\))\x(1\/\(\-?[0-9 | .]+\))/g
-    let division = /(sqr\(\-?[0-9 | .]+\))\÷(1\/\(\-?[0-9 | .]+\))/g
 
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,fraction,potency,equal);
+    testingOperation(stateCopy,mathExpression,fraction,potency,equal);
 
 
 }

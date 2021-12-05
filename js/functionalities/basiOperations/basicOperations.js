@@ -19,10 +19,6 @@ const basicOperations = (stateCopy,equal) =>{
 
     //operations
 
-    let sum = /([0-9 | .])\+/g
-    let substract = /([0-9 | .])\-/g
-    let multiply = /([0-9 | .])\x/g
-    let division = /([0-9 | .])\÷/g
     let porcentage = /([0-9 | .])\%/g
     let validePorc = porcentage.test(operation);
 
@@ -35,7 +31,7 @@ const basicOperations = (stateCopy,equal) =>{
         stateCopy.result = `${result}`;
     }{
 
-        testingOperation(stateCopy,operation,sum,substract,multiply,division,mathExpression,value1,value2,equal);
+        testingOperation(stateCopy,mathExpression,value1,value2,equal);
 
     }
 

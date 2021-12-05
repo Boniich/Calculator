@@ -19,15 +19,7 @@ const squareRootPotency = (stateCopy,operation,equal) =>{
     console.log(squareRoot);
     console.log(potency);
 
-    let sum = /(√\([0-9 | .]+\))\+(sqr\(\-?[0-9 | .]+\))/g
-    let subtract = /(√\([0-9 | .]+\))\-(sqr\(\-?[0-9 | .]+\))/g
-    let multiply = /(√\([0-9 | .]+\))\x(sqr\(\-?[0-9 | .]+\))/g
-    let division = /(√\([0-9 | .]+\))\÷(sqr\(\-?[0-9 | .]+\))/g
-
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,potency,squareRoot,equal);
-
-
-
+    testingOperation(stateCopy,mathExpression,potency,squareRoot,equal);
 }
 
 export default squareRootPotency;

@@ -17,12 +17,7 @@ const fractionSquareRoot = (stateCopy,operation,equal) =>{
     console.log(fraction);
     console.log(squareRoot);
 
-    let sum = /(1\/\(\-?[0-9 | .]+\))\+(√\([0-9 | .]+\))/g
-    let subtract = /(1\/\(\-?[0-9 | .]+\))\-(√\([0-9 | .]+\))/g
-    let multiply = /(1\/\(\-?[0-9 | .]+\))\x(√\([0-9 | .]+\))/g
-    let division = /(1\/\(\-?[0-9 | .]+\))\÷(√\([0-9 | .]+\))/g
-
-    testingOperation(stateCopy,operation,sum,subtract,multiply,division,mathExpression,fraction,squareRoot,equal);
+    testingOperation(stateCopy,mathExpression,fraction,squareRoot,equal);
 
 
 
