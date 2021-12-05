@@ -62,6 +62,22 @@ const testExpression = (stateCopy,typeOperation) =>{
         case "testSpecial":
             expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\-])(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)/g;
             break;
+
+        case "sum":
+            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?\+(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?)/g;
+            break;
+
+        case "substract":
+            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?\-(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?)/g;
+            break;
+
+        case "multiply":
+            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?\x(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?)/g;
+            break;
+
+        case "division":
+            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?\÷(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?)/g;
+            break;
         
         default:
 
