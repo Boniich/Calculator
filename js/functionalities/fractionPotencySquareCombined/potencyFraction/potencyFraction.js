@@ -1,3 +1,4 @@
+import testExpression from "../../../helpers/testExpression/testExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
 
@@ -18,6 +19,15 @@ const potencyFraction = (stateCopy,operation,equal) =>{
 
     console.log(fraction);
     console.log(potency);
+
+    if(testExpression(stateCopy,"division")){
+        let aux;
+
+        aux = fraction;
+        fraction = potency;
+        potency = aux;
+    }
+
 
     testingOperation(stateCopy,mathExpression,fraction,potency,equal);
 

@@ -1,3 +1,4 @@
+import testExpression from "../../../helpers/testExpression/testExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
 
@@ -14,10 +15,17 @@ const squareRootFraction = (stateCopy,operation,equal) =>{
     
     squareRoot = Math.sqrt(squareRoot);
     fraction = 1/fraction;
-    
 
     console.log(fraction);
     console.log(squareRoot);
+
+    if(testExpression(stateCopy,"division")){
+        let aux;
+
+        aux = squareRoot;
+        squareRoot = fraction;
+        fraction = aux;
+    }
 
     testingOperation(stateCopy,mathExpression,fraction,squareRoot,equal);
 
