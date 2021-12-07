@@ -29,7 +29,12 @@ const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
             return};
             result = value1 / value2;
             
-            break;    
+            break; 
+            
+        case "%":
+            result = (value1*value2)/100;
+
+            break;
         default:
             break;
     }
