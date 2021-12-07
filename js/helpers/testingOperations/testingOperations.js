@@ -11,6 +11,8 @@ const testingOperation = (stateCopy,mathExpression,value1,value2,equal) =>{
 
     if(testExpression(stateCopy,"division")){operations(stateCopy,"÷",mathExpression,value1,value2,equal);}
 
+    if(testExpression(stateCopy,"porcentage")){operations(stateCopy,"%",mathExpression,value1,value2,equal)}
+
 }
 
 
