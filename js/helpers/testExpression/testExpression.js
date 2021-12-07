@@ -78,6 +78,8 @@ const testExpression = (stateCopy,typeOperation) =>{
         case "division":
             expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?\÷(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?)/g;
             break;
+        case "porcentage":
+            expression =  /([0-9 | .])\%/g
         
         default:
 
