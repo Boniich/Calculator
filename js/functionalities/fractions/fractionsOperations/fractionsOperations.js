@@ -5,13 +5,11 @@ import twoFractions from "../twoFractions/twoFractions.js";
 
     const fractionsOperations = (flag,stateCopy,equal) =>{
 
-        let operation = new String(stateCopy.operation,equal);
+        if(testExpression(stateCopy,"2f")){twoFractions(stateCopy,equal);}
 
-        if(testExpression(stateCopy,"2f")){twoFractions(stateCopy,operation,equal);}
+        if(testExpression(stateCopy,"nf")){numberAndFraction(stateCopy,equal);}
 
-        if(testExpression(stateCopy,"nf")){numberAndFraction(stateCopy,operation,equal);}
-
-        if(testExpression(stateCopy,"fn")){fractionAndNumber(flag,stateCopy,operation,equal);}
+        if(testExpression(stateCopy,"fn")){fractionAndNumber(flag,stateCopy,equal);}
     } 
 
     export default fractionsOperations;

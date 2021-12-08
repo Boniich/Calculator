@@ -5,13 +5,11 @@ import twoSquareRoot from "../twoSquareRoot/twoSquareRoot.js";
 
 const squareRootOperations = (flag,stateCopy,equal) =>{
 
-    let operation = new String(stateCopy.operation);
+    if(testExpression(stateCopy,"ss")){twoSquareRoot(stateCopy,equal);}
 
-    if(testExpression(stateCopy,"ss") === true){twoSquareRoot(stateCopy,operation,equal);}
+    if(testExpression(stateCopy,"ns")){numberAndSquareRoot(stateCopy,equal);}
 
-    if(testExpression(stateCopy,"ns") === true){numberAndSquareRoot(stateCopy,operation,equal);}
-
-    if(testExpression(stateCopy,"sn") === true){squareRootAndNumber(flag,stateCopy,operation,equal);}
+    if(testExpression(stateCopy,"sn")){squareRootAndNumber(flag,stateCopy,equal);}
 
 
 }

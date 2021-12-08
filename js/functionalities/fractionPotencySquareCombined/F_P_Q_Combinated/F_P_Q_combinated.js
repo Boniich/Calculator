@@ -8,18 +8,14 @@ import testExpression from "../../../helpers/testExpression/testExpression.js";
 
 const F_P_Q_Combinated = (stateCopy,equal) =>{
 
-    let operation = new String(stateCopy.operation);
 
-    if(testExpression(stateCopy,"fp") === true){fractionPotency(stateCopy,operation,equal)};
-    if(testExpression(stateCopy,"pf") === true){potencyFraction(stateCopy,operation,equal)};
-    if(testExpression(stateCopy,"fs") === true){fractionSquareRoot(stateCopy,operation,equal)};
-    if(testExpression(stateCopy,"sf") === true){squareRootFraction(stateCopy,operation,equal)}
-    if(testExpression(stateCopy,"sp") === true){squareRootPotency(stateCopy,operation,equal)};
-    if(testExpression(stateCopy,"ps") === true){potencySquareRoot(stateCopy,operation,equal)};
+    if(testExpression(stateCopy,"fp")){fractionPotency(stateCopy,equal)};
+    if(testExpression(stateCopy,"pf")){potencyFraction(stateCopy,equal)};
+    if(testExpression(stateCopy,"fs")){fractionSquareRoot(stateCopy,equal)};
+    if(testExpression(stateCopy,"sf")){squareRootFraction(stateCopy,equal)}
+    if(testExpression(stateCopy,"sp")){squareRootPotency(stateCopy,equal)};
+    if(testExpression(stateCopy,"ps")){potencySquareRoot(stateCopy,equal)};
     
-
-
-
 }
 
 export default F_P_Q_Combinated;
