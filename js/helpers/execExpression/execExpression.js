@@ -6,10 +6,11 @@ const execExpression = (stateCopy,typeOperation) =>{
 
     switch (typeOperation) {
         case "endsWithSign":
+            console.log("endWithSign");
             expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\% |\= |\-])/g;
             break;
         case "signBetween":
-            expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\-])(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)/g;;
+            expression = /(1?[\/ | \√ | sqr]*\(?(\-?[0-9 | 0.0]+)\)?)([\+ | \x |\÷ |\-])(1?[\/ | \√ | sqr]*\(?(\-?[0-9 | 0.0]+)\)?)?/g;;
             break;
     
         default:
