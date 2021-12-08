@@ -10,24 +10,25 @@ import testExpression from "../../helpers/testExpression/testExpression.js";
 const makingAnOperation = (flag,stateCopy,equal) =>{
 
 
-    if(testExpression(stateCopy,"2f") === true|| testExpression(stateCopy,"nf") === true|| testExpression(stateCopy,"fn") === true){
-
+    if(testExpression(stateCopy,"2f") || testExpression(stateCopy,"nf") || testExpression(stateCopy,"fn") ){
+        console.log("fraction")
         fractionsOperations(flag,stateCopy,equal);
 
        
-    }else if(testExpression(stateCopy,"pp") === true || testExpression(stateCopy,"np") === true || testExpression(stateCopy,"pn") === true){
-
+    }else if(testExpression(stateCopy,"pp")  || testExpression(stateCopy,"np")  || testExpression(stateCopy,"pn") ){
+        console.log("potency");
         potencyOperations(flag,stateCopy,equal);
-
-    }else if(testExpression(stateCopy,"ss") === true || testExpression(stateCopy,"ns") === true || testExpression(stateCopy,"sn") === true){
-
+        
+       
+    }else if(testExpression(stateCopy,"ss")  || testExpression(stateCopy,"ns")  || testExpression(stateCopy,"sn") ){
+        console.log("squareRoot");
         squareRootOperations(flag,stateCopy,equal);
 
-    }else if(testExpression(stateCopy,"fp") === true || testExpression(stateCopy,"pf") === true 
-        || testExpression(stateCopy,"fs") === true || testExpression(stateCopy,"sf") === true
-        || testExpression(stateCopy,"sp")=== true || testExpression(stateCopy,"ps") === true){
+    }else if(testExpression(stateCopy,"fp")  || testExpression(stateCopy,"pf")  
+    || testExpression(stateCopy,"fs")  || testExpression(stateCopy,"sf") 
+    || testExpression(stateCopy,"sp") || testExpression(stateCopy,"ps") ){
         console.log("If de operaciones combinadas");
-
+        console.log("f-p-s")
         F_P_Q_Combinated(stateCopy,equal);
         
 
@@ -37,7 +38,6 @@ const makingAnOperation = (flag,stateCopy,equal) =>{
         flag.overWrite = true;
 
     }
-
 }
 
 export default makingAnOperation;
