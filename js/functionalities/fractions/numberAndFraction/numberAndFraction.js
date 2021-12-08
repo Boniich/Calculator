@@ -1,15 +1,14 @@
+import execExpression from "../../../helpers/execExpression/execExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const numberAndFraction = (stateCopy,operation,equal) =>{
+const numberAndFraction = (stateCopy,equal) =>{
 
     console.log("Number and fraction");
 
-    let extractNumbers = /(\-?[0-9 | .]+).1\/\((\-?[0-9 | .]+)\)/g;
-    let numbers = extractNumbers.exec(operation);
-    console.log(numbers);
+    let numbers = execExpression(stateCopy,"signBetween");
 
-    let value1 = Number.parseFloat(numbers[1]);
-    let value2 = Number.parseFloat(numbers[2]);
+    let value1 = Number.parseFloat(numbers[2]);
+    let value2 = Number.parseFloat(numbers[5]);
 
     let mathExpression = numbers[0];
 

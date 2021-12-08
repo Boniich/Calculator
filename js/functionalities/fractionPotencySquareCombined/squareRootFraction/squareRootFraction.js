@@ -1,23 +1,19 @@
+import execExpression from "../../../helpers/execExpression/execExpression.js";
 import testExpression from "../../../helpers/testExpression/testExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
 
-const squareRootFraction = (stateCopy,operation,equal) =>{
+const squareRootFraction = (stateCopy,equal) =>{
 
     console.log("squareRoot and fraction")
-    let extractNumbers = /√\(([0-9 | .]+)\).1\/\((\-?[0-9 | .]+)\)/g;
-    let numbers = extractNumbers.exec(operation);
-    console.log(numbers);
 
+    let numbers = execExpression(stateCopy,"signBetween");
     let mathExpression = numbers[0];
-    let squareRoot = Number.parseFloat(numbers[1]);
-    let fraction = Number.parseFloat(numbers[2]);
+    let squareRoot = Number.parseFloat(numbers[2]);
+    let fraction = Number.parseFloat(numbers[5]);
     
     squareRoot = Math.sqrt(squareRoot);
     fraction = 1/fraction;
-
-    console.log(fraction);
-    console.log(squareRoot);
 
     if(testExpression(stateCopy,"division")){
         let aux;
@@ -28,9 +24,6 @@ const squareRootFraction = (stateCopy,operation,equal) =>{
     }
 
     testingOperation(stateCopy,mathExpression,fraction,squareRoot,equal);
-
-
-
 }
 
 export default squareRootFraction;

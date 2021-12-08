@@ -1,16 +1,15 @@
+import execExpression from "../../../helpers/execExpression/execExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const twoSquareRoot = (stateCopy,operation,equal) =>{
+const twoSquareRoot = (stateCopy,equal) =>{
 
     console.log("Two squareRoot")
 
-    let extractNumbers = /√\(([0-9 | .]+)\).√\(([0-9 | .]+)\)/g;
-    let numbers = extractNumbers.exec(operation);
-    console.log(numbers);
+    let numbers = execExpression(stateCopy,"signBetween");
 
     let mathExpression = numbers[0];
-    let value1 = Number.parseFloat(numbers[1]);
-    let value2 = Number.parseFloat(numbers[2]);
+    let value1 = Number.parseFloat(numbers[2]);
+    let value2 = Number.parseFloat(numbers[5]);
 
     value1 = Math.sqrt(value1);
     value2 = Math.sqrt(value2);

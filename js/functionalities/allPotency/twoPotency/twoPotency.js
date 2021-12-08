@@ -1,20 +1,18 @@
+import execExpression from "../../../helpers/execExpression/execExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const twoPotency = (stateCopy,operation,equal) =>{
+const twoPotency = (stateCopy,equal) =>{
     
     console.log("Two Potency")
 
-    let extractNumbers = /sqr\(\-?([0-9 | .]+)\).sqr\(\-?([0-9 | .]+)\)/g;
-    let numbers = extractNumbers.exec(operation);
-    console.log(numbers);
+    let numbers = execExpression(stateCopy,"signBetween");
 
-    let value1 = Number.parseFloat(numbers[1]);
-    let value2 = Number.parseFloat(numbers[2]);
+    let mathExpression = numbers[0];
+    let value1 = Number.parseFloat(numbers[2]);
+    let value2 = Number.parseFloat(numbers[5]);
 
     value1 = value1*value1;
     value2 = value2*value2;
-
-    let mathExpression = numbers[0];
 
     testingOperation(stateCopy,mathExpression,value1,value2,equal);
 }

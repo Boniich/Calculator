@@ -1,19 +1,16 @@
+import execExpression from "../../../helpers/execExpression/execExpression.js";
 import testingOperation from "../../../helpers/testingOperations/testingOperations.js";
 
-const squareRootAndNumber = (flag,stateCopy,operation,equal) =>{
+const squareRootAndNumber = (flag,stateCopy,equal) =>{
 
     console.log("SquareRoot and Number");
 
-    let extractNumbers = /√\(([0-9 | .]+)\)./g;
-    let numbers = extractNumbers.exec(operation);
-    console.log(numbers);
-
+    let numbers = execExpression(stateCopy,"signBetween");
     
-    let value1 = Number.parseFloat(numbers[1]);
+    let value1 = Number.parseFloat(numbers[2]);
     let value2 = Number.parseFloat(stateCopy.result);
 
     let mathExpression = numbers[0] + value1;
-    console.log(mathExpression);
 
     value1 = Math.sqrt(value1);
 
