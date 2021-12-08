@@ -4,7 +4,7 @@ const testExpression = (stateCopy,typeOperation) =>{
     let expression;
     let test = false;
     switch (typeOperation) {
-        //fractions
+        
         case "fractionPotencySquare":
             expression = /(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)([\+ | \x |\÷ |\-])(1?[\/ | \√ | sqr]*\(?\-?[0-9 | 0.0]+\)?)?/g;
             break;
@@ -12,6 +12,7 @@ const testExpression = (stateCopy,typeOperation) =>{
         case "endParentesis":
             expression = /(1?[\/ | \√ | sqr]*\(\-?[0-9 | 0.0]+\)$)/g;
             break;
+        //fractions
         case "2f":
             expression = /(1\/\(\-?[0-9 | .]+\))([\+ | \x |\÷ |\-])(1\/\(\-?[0-9 | .]+\))/g;
             break;
