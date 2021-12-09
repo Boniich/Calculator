@@ -102,7 +102,7 @@ function standardMode(){
         if(e.target.matches(".igual")){equal(flag,stateCopy);}
 
 
-        if(e.target.matches(".recoil")){recoil(stateCopy)};
+        if(e.target.matches(".recoil") || e.target.matches(".icon-recoil")){recoil(stateCopy)};
 
         // Renders
 
