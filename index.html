@@ -11,6 +11,11 @@
 <body>
 
     <div class="box">
+        <div class="nav-history">
+            <div class="mode-icon"><button class="btn-mode-history"><img src="./assests/icons/nav.svg" width="20px" height="20px"></img></button></div>
+            <div class="mode"><p>Standard</p></div>
+            <div class="history-icon"><button class="btn-mode-history"><img class="history" src="./assests/icons/history.svg" width="20px" height="20px"></img></button></div>
+        </div>
         <div class="result-operation">
         <div class="box-operation"><p id="operation"></p></div>
         <div class="box-result"><p id="result"></p></div>
@@ -41,6 +46,10 @@
             <button class="btn btn-others-color dividir">÷</button>
             <button class="btn btn-igual-color igual">=</button>
         </div>
+        <section class="section-history">
+            <div class="list-history" id="list"></div>
+            <div class="delete-history"><button class="btn-mode-history"><img class="delete"src="./assests/icons/deleteHistory.svg" width="20px" height="20px"></img></button></div>
+        </section>
     </div>
 
     <script src="./js/calculator.js" type="module"></script>
