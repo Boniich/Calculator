@@ -10,8 +10,8 @@ import mathSigns from "./functionalities/mathSigns/mathSigns.js";
 import negSign from "./helpers/negSign/negSign.js";
 import equal from "./functionalities/equal/equal.js";
 import recoil from "./helpers/recoil/recoil.js";
-import showHistory from "./helpers/history/showHistory/showHistory.js";
-import deteleHistory from "./helpers/history/deteleHistory/deleteHistory.js";
+import showRecord from "./helpers/history/showRecord/showRecord.js";
+import deteleRecord from "./helpers/history/deteleRecord/deleteRecord.js";
 
 const state = {
     operation: "",
@@ -109,9 +109,9 @@ function standardMode(){
 
         //History
 
-        if(e.target.matches(".show-history")){showHistory()};
+        if(e.target.matches(".show-record")){showRecord()};
 
-        if(e.target.matches(".delete-history")){deteleHistory()}
+        if(e.target.matches(".delete-record")){deteleRecord()}
 
 
         // Renders
