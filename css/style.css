@@ -4,6 +4,7 @@ body {
 }
 
 .box {
+  position: relative;
   background-color: white;
   width: 17.5rem;
   margin: 300px auto;
@@ -33,7 +34,7 @@ body {
 .btns {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-template-areas: "porcentaje ce c nada" "fracciones potencia raiz dividir" "btn7 btn8 btn9 multiply" "btn4 btn5 btn6 subtract" "btn1 btn2 btn3 sum" "neg cero coma igual";
+  grid-template-areas: "porcentaje ce c recoil" "fracciones potencia raiz dividir" "btn7 btn8 btn9 multiply" "btn4 btn5 btn6 subtract" "btn1 btn2 btn3 sum" "neg cero coma igual";
 }
 
 .btn {
@@ -156,6 +157,105 @@ body {
 
 .nada {
   grid-area: nada;
+}
+
+.recoil {
+  grid-area: recoil;
+}
+
+.nav-record {
+  height: 30px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-areas: "modeIcon mode record";
+}
+
+.mode-icon {
+  grid-area: modeIcon;
+  display: none;
+}
+
+.btn-mode-record {
+  background-color: #fff;
+  border: none;
+}
+
+.btn-mode-record:hover {
+  border: 1px outset #fff;
+}
+
+.mode {
+  grid-area: mode;
+}
+
+.mode p {
+  padding-top: 3px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 0;
+}
+
+.record-icon {
+  grid-area: record;
+}
+
+.section-record {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  height: 240px;
+  width: 18.2rem;
+  position: absolute;
+  top: 400px;
+  left: 0;
+  opacity: 0;
+}
+
+.open-record {
+  top: 160px;
+  opacity: 100;
+}
+
+.record-box {
+  text-align: right;
+  padding: 3px 20px 3px 0;
+  margin: 5px 0;
+}
+
+.record-box p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+#record-result {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.record-box:hover {
+  background-color: #ccc;
+}
+
+.list-record {
+  overflow: auto;
+  height: 210px;
+}
+
+.delete-record-box {
+  position: absolute;
+  top: 210px;
+  background-color: #fff;
+  width: 17.1rem;
+  height: 30px;
+}
+
+.btn-delete {
+  position: absolute;
+  left: 240px;
+}
+
+#no-record p {
+  margin: 5px 0;
+  padding-left: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
