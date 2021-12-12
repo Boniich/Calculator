@@ -1,5 +1,5 @@
 const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
-
+    let list = document.getElementById("list");
     let result = 0;
 
     switch (signo) {
@@ -45,6 +45,7 @@ const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
         console.log("result",result);
         stateCopy.operation = `${result}${signo}`;
         stateCopy.result = `${result}`;
+
         break;
 
         case true:
@@ -53,7 +54,12 @@ const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
         stateCopy.result = `${result}`;
         break;
     }
-    
+
+    list.innerHTML += `
+    <div data-index= "1" class="history-box">
+    <p id="mathExpression">${mathExpression}=</p>
+    <p id="history-result">${result}</p>
+    </div>`;
 }
 
 export default operations;
