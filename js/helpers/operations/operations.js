@@ -58,7 +58,7 @@ const operations = (stateCopy,signo,mathExpression,value1,value2,equal) =>{
     list.innerHTML += `
     <div data-index= "1" class="record-box">
     <p id="mathExpression">${mathExpression}=</p>
-    <p id="history-result">${result}</p>
+    <p id="record-result">${result}</p>
     </div>`;
 }
 
