@@ -10,6 +10,8 @@ import mathSigns from "./functionalities/mathSigns/mathSigns.js";
 import negSign from "./helpers/negSign/negSign.js";
 import equal from "./functionalities/equal/equal.js";
 import recoil from "./helpers/recoil/recoil.js";
+import showHistory from "./helpers/history/showHistory/showHistory.js";
+import deteleHistory from "./helpers/history/deteleHistory/deleteHistory.js";
 
 const state = {
     operation: "",
@@ -99,10 +101,18 @@ function standardMode(){
         if(e.target.matches(".squareRoot")){squareRoot(stateCopy,flag);};
 
 
-        if(e.target.matches(".igual")){equal(flag,stateCopy);}
+        if(e.target.matches(".equal")){equal(flag,stateCopy);}
 
+        //recoil
 
         if(e.target.matches(".recoil") || e.target.matches(".icon-recoil")){recoil(stateCopy)};
+
+        //History
+
+        if(e.target.matches(".show-history")){showHistory()};
+
+        if(e.target.matches(".delete-history")){deteleHistory()}
+
 
         // Renders
 
