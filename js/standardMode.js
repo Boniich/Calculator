@@ -10,8 +10,8 @@ import mathSigns from "./functionalities/mathSigns/mathSigns.js";
 import negSign from "./helpers/negSign/negSign.js";
 import equal from "./functionalities/equal/equal.js";
 import recoil from "./helpers/recoil/recoil.js";
-import showRecord from "./helpers/history/showRecord/showRecord.js";
-import deteleRecord from "./helpers/history/deteleRecord/deleteRecord.js";
+import showRecord from "./helpers/record/showRecord/showRecord.js";
+import deteleRecord from "./helpers/record/deteleRecord/deleteRecord.js";
 
 const state = {
     operation: "",
